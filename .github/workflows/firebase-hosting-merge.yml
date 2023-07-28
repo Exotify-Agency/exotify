@@ -8,6 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - main
 env:
   CI: false
+  FIREBASE_CLI_EXPERIMENTS: webframeworks
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
