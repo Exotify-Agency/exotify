@@ -32,7 +32,7 @@ const ProcessSection = () => {
       </Animate.ClipIn>
       <Animate.ClipIn
         isVisible={reveal}
-        direction={windowSize <= 700 ? "down" : "right"}
+        direction="right"
         duration={1.5}
         delay={windowSize <= 700 ? 0.5 : 0}
         instant={instant}

@@ -16,10 +16,6 @@ const links = [
     text: "contact us",
     href: "/#section-contact",
   },
-  {
-    text: "test",
-    href: "/test",
-  },
 ];
 
 const Nav = (props) => {

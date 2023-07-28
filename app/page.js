@@ -16,6 +16,7 @@ export const metadata = {
   description: "Homepage of Exotify.ca",
 };
 
+// NOTE: any other page other than /, you need to specify to rewrite to it with the hosting provider
 export default function Home() {
   return (
     <Fragment>
