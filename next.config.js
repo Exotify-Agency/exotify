@@ -4,6 +4,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  trailingSlash: true,
   compress: true,
   images: { unoptimized: true },
 };
