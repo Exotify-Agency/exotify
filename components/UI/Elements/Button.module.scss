@@ -1,0 +1,318 @@
+.Button {
+  $btn-trans: 0.2s;
+  $pd-top: 1.3rem;
+  $pd-left: 2.5rem;
+
+  cursor: pointer;
+  min-width: 7.5rem;
+  font-size: 1.25rem;
+  border: none;
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  & > * {
+    pointer-events: none;
+  }
+
+  // CHILDREN
+  & .children {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  // STATES
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  &.loading {
+    pointer-events: none;
+
+    & > *:not(.loader) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  // INNER ELEMENTS
+  & .text {
+  }
+
+  & > i {
+    display: block;
+    font-size: 1.25rem;
+  }
+
+  & .loader {
+  }
+
+  // BUTTON TYPES
+  &,
+  &Gold,
+  &Gold:link,
+  &Gold:visited {
+    padding: $pd-top $pd-left;
+    background-color: var(--c-gold);
+    color: var(--txt-title-l);
+
+    transition: filter $btn-trans;
+  }
+
+  &Gold,
+  &Gold:link,
+  &Gold:visited {
+    &:hover,
+    &:focus-within {
+      filter: brightness(1.1);
+    }
+  }
+
+  &Text,
+  &Text:link,
+  &Text:visited {
+    background: transparent;
+    padding: 0;
+    color: var(--c-gold);
+    min-width: 0;
+    font-size: inherit;
+    font-weight: 500;
+
+    & .children {
+      text-transform: capitalize;
+      transition: gap 0.2s;
+    }
+
+    &:hover,
+    &:focus-within {
+      & .children {
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  &Underline,
+  &Underline:link,
+  &Underline:visited {
+    padding: 0;
+    color: var(--c-gold);
+    background: transparent;
+    overflow: visible;
+    min-width: 0;
+
+    & .children {
+      transition: translate $btn-trans ease-in-out;
+    }
+
+    &:hover,
+    &:focus-within {
+      & .children {
+        translate: 0 -0.4rem;
+      }
+
+      & .underline {
+        width: 80%;
+      }
+    }
+
+    & .underline {
+      background-color: var(--c-gold);
+      position: absolute;
+      top: 100%;
+      height: 0.1rem;
+      width: 0%;
+      translate: 0 -100%;
+
+      transition: width $btn-trans ease-in-out;
+    }
+  }
+
+  &Outline,
+  &Outline:link,
+  &Outline:visited {
+    background: transparent;
+    background-size: 210%;
+    background-position: 97%;
+    background-image: linear-gradient(
+      to left,
+      transparent 50%,
+      rgba(var(--c-gold-rgb), 1) 50%
+    );
+    border: 0.1rem solid var(--bd-gold);
+    color: var(--bd-gold);
+
+    transition: color $btn-trans, background-color $btn-trans,
+      background-position $btn-trans, gap $btn-trans, translate $btn-trans;
+
+    &:hover,
+    &:focus-within {
+      color: var(--txt-title-l);
+      background-color: transparent;
+      background-position: 1%;
+    }
+  }
+
+  &Shine,
+  &Shine:link,
+  &Shine:visited {
+    background-color: var(--c-gold);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    background-position: 150%;
+    background-image: linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(white, 0.2) 35%,
+      rgba(white, 0.2) 65%,
+      transparent 65%,
+      transparent 100%
+    );
+    color: var(--txt-title-l);
+    transition: gap $btn-trans;
+
+    &:hover,
+    &:focus-within {
+      transition: background-position 0.6s, gap $btn-trans;
+      background-position: -50%;
+    }
+  }
+
+  &Google,
+  &Google:link,
+  &Google:visited {
+    background-color: var(--bg-secondary);
+    color: var(--txt-title);
+
+    transition: filter $btn-trans;
+
+    &:hover,
+    &:focus-within {
+    }
+  }
+
+  &Facebook,
+  &Facebook:link,
+  &Facebook:visited {
+    $bg-color: #4267b2;
+    background-color: $bg-color;
+    color: var(--txt-title-l);
+
+    transition: filter $btn-trans;
+
+    &:hover,
+    &:focus-within {
+    }
+  }
+
+  &Apple,
+  &Apple:link,
+  &Apple:visited {
+    background-color: var(--txt-title);
+    color: var(--txt-title-l);
+
+    transition: filter $btn-trans;
+
+    &:hover,
+    &:focus-within {
+    }
+  }
+
+  &SliderNext,
+  &SliderNext:link,
+  &SliderNext:visited,
+  &SliderPrev,
+  &SliderPrev:link,
+  &SliderPrev:visited {
+    $tail-length: 1.5rem;
+
+    background-color: transparent;
+    border: 0.2rem solid var(--bd-gold);
+    height: 2rem;
+    width: 5rem;
+    min-width: 0;
+    padding: 0;
+    overflow: visible;
+
+    align-items: center;
+
+    transition: height $btn-trans, width $btn-trans;
+
+    &:hover,
+    &:focus-within {
+      & .arrowTail {
+        width: 5rem;
+      }
+    }
+
+    & .arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+
+      display: flex;
+      align-items: center;
+
+      transition: left $btn-trans ease-in-out;
+
+      &Tail {
+        height: 0.2rem;
+        width: $tail-length;
+        background-color: var(--bd-gold);
+        transition: width $btn-trans ease-in-out;
+      }
+
+      &Head {
+        height: 0.75rem;
+        width: 0.75rem;
+        rotate: 45deg;
+      }
+    }
+  }
+
+  &SliderNext,
+  &SliderNext:link,
+  &SliderNext:visited {
+    &:hover,
+    &:focus-within {
+      & .arrow {
+        left: calc(50% + 1.75rem);
+      }
+    }
+
+    & .arrowHead {
+      margin-right: -1rem;
+      border-top: 0.2rem solid var(--bd-gold);
+      border-right: 0.2rem solid var(--bd-gold);
+      translate: -100% 0;
+    }
+  }
+
+  &SliderPrev,
+  &SliderPrev:link,
+  &SliderPrev:visited {
+    &:hover,
+    &:focus-within {
+      & .arrow {
+        left: calc(50% - 1.75rem);
+      }
+    }
+
+    & .arrowHead {
+      margin-left: -1rem;
+      border-bottom: 0.2rem solid var(--bd-gold);
+      border-left: 0.2rem solid var(--bd-gold);
+      translate: 100% 0;
+    }
+  }
+}

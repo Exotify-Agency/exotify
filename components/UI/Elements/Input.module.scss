@@ -1,0 +1,95 @@
+.Input {
+  $indicator-width: 1rem;
+
+  border: none;
+  position: relative;
+  align-self: start;
+  display: grid;
+  justify-content: stretch;
+
+  &-text,
+  &-password,
+  &-textarea {
+    font-size: 1.5rem;
+    color: var(--txt-title);
+    border-bottom: 0.4rem solid var(--c-gold);
+    background-color: var(--bg-secondary);
+
+    transition: border 0.2s;
+
+    & label {
+      left: 1.5rem;
+      position: absolute;
+      pointer-events: none;
+      text-transform: uppercase;
+      font-family: var(--font-playfair);
+      display: block;
+    }
+
+    & input,
+    & textarea {
+      padding: 2.25rem 1.5rem 0.75rem 1.5rem;
+      display: block;
+      border: none;
+      border-radius: 0;
+      font-family: var(--font-roboto);
+
+      transition: padding 0.2s;
+
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+
+    & .indicator {
+      transition: opacity 0.2s;
+      height: $indicator-width;
+      width: $indicator-width;
+      position: absolute;
+      display: block;
+      background-color: var(--c-red);
+      right: 1.5rem;
+      top: 50%;
+      translate: 0 -50%;
+      opacity: 0;
+    }
+  }
+
+  &-text,
+  &-password {
+    & input {
+      &:not(:placeholder-shown) + label,
+      &:focus + label {
+        top: 0.5rem;
+        transform: translateY(0);
+        font-size: 1.2rem;
+        pointer-events: all;
+      }
+    }
+
+    & label {
+      top: 50%;
+      transform: translateY(-50%);
+      transition: top 0.2s, font-size 0.2s, transform 0.2s;
+    }
+  }
+
+  &-textarea {
+    overflow: hidden;
+    padding-top: 2.25rem;
+
+    & textarea {
+      padding: 0 1.5rem 0.75rem 1.5rem;
+    }
+
+    & label {
+      width: 100%;
+      left: 0;
+      top: -0.01rem;
+      font-size: 1.2rem;
+      padding-left: 1.5rem;
+      padding-top: 0.5rem;
+      pointer-events: all;
+    }
+  }
+}

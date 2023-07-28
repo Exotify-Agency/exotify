@@ -1,0 +1,24 @@
+@import "@/sass/abstracts/mixins";
+
+.Section {
+  display: grid;
+  padding: var(--pd-section-top) var(--pd-limit-width);
+  gap: var(--gap-section);
+  position: relative;
+
+  &Container {
+  }
+
+  &:only-of-type {
+    height: 100vh;
+  }
+
+  &Back {
+    position: absolute;
+    top: var(--pd-limit-width);
+    left: var(--pd-limit-width);
+  }
+}
+
+.SectionContainer {
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=exotic
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/node /home/ec2-user/exotic/server.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=exotic
+User=ec2-user
+EnvironmentFile=/home/ec2-user/exotic/.env
+
+[Install]
+WantedBy=multi-user.target

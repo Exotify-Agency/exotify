@@ -1,0 +1,73 @@
+body,
+input,
+label,
+button,
+textarea,
+select {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.header {
+  text-transform: capitalize;
+  line-height: 1.2;
+  font-family: var(--font-playfair);
+}
+
+// Header Title
+.header-1 {
+  font-size: 8rem;
+  font-weight: 700;
+}
+
+// Section Title
+.header-2 {
+  font-size: 4.75rem;
+  font-weight: 700;
+
+  @include respond(600) {
+    font-size: 3.75rem;
+  }
+}
+
+// Sub-Section Title
+.header-3 {
+  font-size: 2.75rem;
+  font-weight: 700;
+}
+
+// Card Title
+.header-4 {
+  font-size: 2rem;
+  font-weight: 500;
+  // letter-spacing: 0.15rem;
+}
+
+// Text Title
+.header-5 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-family: var(--font-roboto);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.caption {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-family: var(--font-playfair);
+}
+
+.paragraph,
+.ul,
+.li {
+  font-size: 1.5rem;
+}
+
+.paragraph {
+  font-family: var(--font-roboto);
+}

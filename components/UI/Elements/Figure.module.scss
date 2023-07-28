@@ -1,0 +1,46 @@
+.Figure {
+  display: grid;
+
+  &.hasDesign {
+    margin: 2.5rem 0;
+  }
+
+  &Container {
+    display: grid;
+  }
+
+  &Image {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      scale: 1.1;
+      object-fit: cover; // Causes tiny flicker
+    }
+  }
+
+  &Overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: rgba(var(--c-primary-rgb), 0.2);
+    pointer-events: none;
+  }
+
+  &Caption {
+    position: absolute;
+    left: calc(100% + 0.25rem);
+    top: var(--pd-limit-width);
+    color: var(--c-primary);
+
+    writing-mode: vertical-lr;
+  }
+}

@@ -1,0 +1,81 @@
+@import "@/sass/abstracts/mixins";
+
+section.DesignSection {
+  padding: 0;
+  position: relative;
+}
+
+.Design {
+  &Image {
+    position: absolute;
+    height: calc(100% + 3 * var(--pd-section-top)); // 1pd up, 2pd down
+    width: 57.5vw;
+    min-width: 65rem;
+    right: 0;
+    top: calc(-1 * var(--pd-section-top));
+
+    @include respond(600) {
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  &Main {
+    position: relative;
+    width: 55vw;
+    min-width: 60rem;
+    padding: 12.5rem;
+    padding-top: 17.5rem;
+
+    display: grid;
+    justify-content: end;
+
+    @include respond(600) {
+      min-width: 0;
+      width: 100%;
+      padding: calc(var(--pd-section-top) * 2.5) var(--pd-limit-width);
+
+      justify-content: center;
+    }
+  }
+
+  &Shape {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    position: absolute;
+
+    @include respond(600) {
+      display: none;
+    }
+  }
+
+  &Content {
+    max-width: 50rem;
+    display: grid;
+    gap: var(--pd-limit-width);
+
+    @include respond(600) {
+      max-width: 40rem;
+      text-align: center;
+    }
+
+    & :global(.header) {
+      color: var(--c-gold);
+
+      @include respond(600) {
+        color: var(--txt-title-l);
+      }
+    }
+
+    & p {
+      color: var(--txt-basic);
+
+      @include respond(600) {
+        color: var(--txt-basic-l);
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "plans": {
+    "small": {
+      "pages": [3, 5],
+      "pagePrice": 300,
+      "monthlyCost": [100, 1000],
+      "features": [
+        "3 to 5 unique pages",
+        "SEO optimization",
+        "Social media integration"
+      ]
+    },
+    "medium": {
+      "pages": [6, 10],
+      "pagePrice": 400,
+      "monthlyCost": [1500, 3500],
+      "features": [
+        "6 to 10 unique pages",
+        "SEO optimization",
+        "Database access",
+        "Payments",
+        "Email marketing"
+      ]
+    },
+    "enterprise": {
+      "pages": -1,
+      "pagePrice": 500,
+      "monthlyCost": [4000, -1],
+      "features": [
+        "6 to 10 unique pages",
+        "SEO optimization",
+        "Database access",
+        "Payments",
+        "Email marketing"
+      ]
+    }
+  },
+  "features": {
+    "frontEnd": {
+      "contactForm": [30, 0],
+      "scrollAnimations": [50, 0],
+      "parallaxScrolling": [50, 0],
+      "smoothTransitions": [50, 0],
+      "slider": [50, 0],
+      "interactiveMaps": [100, 0]
+    },
+
+    "backEnd": {
+      "emails": [100, 50],
+      "payments": [200, 50],
+      "dataStorage": [200, 50],
+      "contentStorage": [200, 50],
+      "analytics": [200, 50],
+      "userBase": [200, 50]
+    },
+
+    "packages": {
+      "portfolio": [150, 0],
+      "blog": [150, 50],
+      "barbershop": [500, 100],
+      "firm": [3500, 100],
+      "restaurant": [3500, 500],
+      "ecommerce": [4500, 500],
+      "fitness": [4500, 500]
+    }
+  }
+}

@@ -1,0 +1,205 @@
+@import "@/sass/abstracts/mixins";
+
+section.SpeedSection {
+  justify-content: end;
+  padding: 0;
+  z-index: 1;
+
+  @include respond(800) {
+    padding-top: var(--pd-section-top);
+  }
+
+  @include respond(600) {
+    background-color: var(--bg-secondary);
+    padding: 20vw var(--pd-limit-width);
+    justify-items: center;
+    justify-content: center;
+  }
+
+  @include respond(400) {
+    padding: var(--pd-section-top) var(--pd-limit-width);
+  }
+}
+
+.Speed {
+  &Image {
+    position: absolute;
+    top: calc(-1 * var(--pd-section-top));
+    left: 0;
+    width: 55vw;
+    min-width: 60rem;
+    height: calc(100% + 3 * var(--pd-section-top));
+
+    @include respond(800) {
+      top: 0;
+    }
+
+    @include respond(600) {
+      position: static;
+
+      top: unset;
+      left: unset;
+      max-width: 40rem;
+      min-width: 0;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      z-index: 2;
+    }
+  }
+
+  &Main {
+    padding: 12.5rem;
+    min-width: 55vw;
+    position: relative;
+
+    @include respond(600) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &Shape {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--bg-secondary);
+
+    @include respond(600) {
+      display: none;
+    }
+  }
+
+  &Content {
+    width: 40rem;
+
+    display: grid;
+    gap: var(--pd-limit-width);
+
+    @include respond(600) {
+      width: auto;
+      max-width: 40rem;
+      text-align: center;
+    }
+
+    & :global(.header) {
+      color: var(--c-gold);
+    }
+
+    & p {
+      color: var(--txt-basic);
+    }
+  }
+}
+// .Speed {
+//   $security-index: 2;
+
+//   &ImageMain {
+//     width: 50vw;
+//     height: 90rem;
+//     position: absolute;
+//     top: -30rem;
+//     z-index: calc(#{$security-index} - 1);
+
+//     @include respond(800) {
+//       height: 90rem;
+//       width: 60rem;
+//       bottom: 0;
+//     }
+
+//     @include respond(600) {
+//       width: 100%;
+//     }
+//   }
+
+//   &Shape {
+//     &Wrapper {
+//       position: relative;
+//       width: 60vw;
+//       height: 40rem;
+//       right: 0;
+//       z-index: calc(#{$security-index} + 1);
+
+//       @include respond(800) {
+//         width: 70vw;
+//       }
+
+//       @include respond(600) {
+//         width: 75vw;
+//         max-width: 40rem;
+//       }
+//     }
+
+//     height: 100%;
+//     width: 100%;
+//     position: relative;
+//     display: block;
+//     background-color: var(--bg-secondary);
+//   }
+
+//   &Content {
+//     position: absolute;
+//     width: 40rem;
+//     translate: -60% -50%;
+//     left: 50%;
+//     top: 50%;
+
+//     z-index: calc(#{$security-index} + 1);
+//     color: var(--txt-basic-l);
+
+//     display: grid;
+//     gap: var(--pd-limit-width);
+
+//     @include respond(600) {
+//       translate: -50% -50%;
+//       padding: var(--pd-limit-width);
+//       max-width: 40rem;
+//       width: 100%;
+//     }
+
+//     & h2,
+//     & h3 {
+//       color: var(--c-gold);
+//     }
+//   }
+
+//   &ImageSecondary {
+//     width: 35rem;
+//     height: 40rem;
+//     position: absolute;
+//     right: 7.5vw;
+//     top: max(12.5rem, 2vw);
+//     z-index: calc(#{$security-index} + 1);
+
+//     @include respond(1200) {
+//       right: 0;
+//     }
+
+//     @include respond(1000) {
+//       width: 30rem;
+//     }
+
+//     @include respond(800) {
+//       // right: 5.5vw;
+//       top: -10rem;
+//       width: 25rem;
+//       height: 35rem;
+//     }
+
+//     @include respond(700) {
+//       right: 0;
+//       top: -25rem;
+//       height: 30rem;
+//     }
+
+//     @include respond(600) {
+//       display: block;
+//     }
+
+//     & img {
+//       object-position: right;
+//     }
+//   }
+// }

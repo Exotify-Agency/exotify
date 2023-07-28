@@ -1,0 +1,139 @@
+@import "@/sass/abstracts/mixins";
+
+.Nav {
+  @include limitWidth(calc(110rem - 2 * var(--pd-limit-width)));
+
+  $mg-top: var(--pd-limit-width);
+
+  position: absolute;
+  z-index: 10;
+  top: var(--pd-limit-width);
+  left: 50%;
+  translate: -50% 0;
+  margin: var(--pd-limit-width);
+  padding: 2rem var(--pd-limit-width);
+  background-color: var(--c-primary-d);
+  background-image: var(--bg-pattern-boxes);
+  overflow: hidden;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.home {
+    width: calc(100vw - 2 * var(--pd-header-left));
+    max-width: none;
+    background-color: transparent;
+    background-image: none;
+    position: absolute;
+    margin: 0;
+    padding: 1.5rem var(--pd-limit-width);
+    top: var(--pd-header-top);
+    translate: -50% -100%;
+
+    @include respond(800) {
+      width: 100%;
+      padding: calc(2 * var(--pd-limit-width));
+      top: 0;
+      translate: -50% 0;
+    }
+
+    @include respond(400) {
+      padding: calc(2 * var(--pd-limit-width)) var(--pd-limit-width);
+      left: unset;
+      translate: unset;
+    }
+  }
+
+  &.home &Container {
+    animation: revealNav 1s 1s both;
+  }
+
+  &.home &Links {
+    align-items: flex-end;
+  }
+
+  &Container {
+    display: flex;
+    justify-content: space-between;
+
+    transition: background 0.2s;
+
+    @include respond(800) {
+      justify-content: center;
+    }
+  }
+
+  &Inner {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+
+  &Links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: var(--pd-limit-width);
+  }
+
+  &Link {
+    & > *,
+    & > *:visited,
+    & > *:link {
+      @include respond(800) {
+        color: var(--c-white);
+      }
+    }
+
+    @include respond(300) {
+      width: max-content;
+    }
+  }
+
+  &Dash {
+    display: grid;
+    align-content: center;
+  }
+
+  &Name {
+    color: inherit;
+  }
+
+  &Photo {
+    border: 0.1rem solid var(--bd-gold);
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+
+    & > img {
+      position: absolute;
+      height: calc(100% - 2 * 0.5rem);
+      width: calc(100% - 2 * 0.5rem);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+  }
+
+  &Cta {
+    display: flex;
+    gap: var(--pd-limit-width);
+
+    & > * {
+      font-size: 1.1rem;
+      height: 4rem;
+    }
+  }
+}
+
+@keyframes revealNav {
+  from {
+    translate: 0 calc(100% + 2rem);
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
