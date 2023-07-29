@@ -5,7 +5,7 @@ import classes from "./Section.module.scss";
 import { forwardRef } from "react";
 import { styled } from "styled-components";
 
-import Button from "@/components/UI/Elements/Button";
+import Button from "@/components/UI/Elements/Button/Button";
 
 const StyledSection = styled.section`
   max-width: ${(props) => props.$limit};

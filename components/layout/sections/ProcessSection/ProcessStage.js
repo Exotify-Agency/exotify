@@ -1,6 +1,6 @@
 import classes from "./Process.module.scss";
 
-import Figure from "@/components/UI/Elements/Figure";
+import Figure from "@/components/UI/Elements/Figure/Figure";
 
 const ProcessStage = ({
   stage,

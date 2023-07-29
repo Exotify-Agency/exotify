@@ -2,7 +2,7 @@
 
 import classes from "./Header.module.scss";
 
-import Button from "@/components/UI/Elements/Button";
+import Button from "@/components/UI/Elements/Button/Button";
 import Border from "@/components/UI/Styling/Border";
 import Animate from "@/components/UI/Animate/Animate";
 

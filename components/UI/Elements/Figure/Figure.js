@@ -1,9 +1,9 @@
 import classes from "./Figure.module.scss";
 
-import Border from "../Styling/Border";
-import Animate from "../Animate/Animate";
+import Border from "../../Styling/Border";
+import Animate from "../../Animate/Animate";
 import { forwardRef } from "react";
-import Image from "./Image";
+import Image from "../Image";
 import { useDepth } from "@/hooks/useDepth";
 
 const Figure = forwardRef(

@@ -1,8 +1,8 @@
 "use client";
 
-import Section from "@/components/UI/Elements/Section";
+import Section from "@/components/UI/Elements/Section/Section";
 import classes from "./DesignSection.module.scss";
-import Figure from "@/components/UI/Elements/Figure";
+import Figure from "@/components/UI/Elements/Figure/Figure";
 
 import Animate from "@/components/UI/Animate/Animate";
 import { useReveal } from "@/hooks/useReveal";

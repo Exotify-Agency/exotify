@@ -1,6 +1,6 @@
 import classes from "./Nav.module.scss";
 
-import Button from "@/components/UI/Elements/Button";
+import Button from "@/components/UI/Elements/Button/Button";
 import Animate from "@/components/UI/Animate/Animate";
 
 const links = [

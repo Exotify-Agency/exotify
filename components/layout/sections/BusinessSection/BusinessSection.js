@@ -2,7 +2,7 @@
 
 import classes from "./BusinessSection.module.scss";
 
-import Section from "@/components/UI/Elements/Section";
+import Section from "@/components/UI/Elements/Section/Section";
 import Animate from "@/components/UI/Animate/Animate";
 import BusinessCard from "./BusinessCard";
 import { useReveal } from "@/hooks/useReveal";

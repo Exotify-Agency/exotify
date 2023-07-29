@@ -8,11 +8,11 @@ import { useCaptcha } from "@/hooks/useCaptcha";
 import useInput from "@/hooks/useInput";
 
 import Form from "@/components/UI/Elements/Form";
-import Input from "@/components/UI/Elements//Input";
-import Button from "@/components/UI/Elements/Button";
+import Input from "@/components/UI/Elements/Input/Input";
+import Button from "@/components/UI/Elements/Button/Button";
 import TitleBar from "@/components/UI/Elements/TitleBar";
 import Border from "@/components/UI/Styling/Border";
-import Figure from "@/components/UI/Elements/Figure";
+import Figure from "@/components/UI/Elements/Figure/Figure";
 import Animate from "@/components/UI/Animate/Animate";
 
 import * as config from "@/data/config";

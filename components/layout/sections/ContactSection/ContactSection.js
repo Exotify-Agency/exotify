@@ -2,7 +2,7 @@
 
 import classes from "./ContactSection.module.scss";
 
-import Section from "@/components/UI/Elements/Section";
+import Section from "@/components/UI/Elements/Section/Section";
 import Message from "./Message";
 
 import Alternatives from "./Alternatives";

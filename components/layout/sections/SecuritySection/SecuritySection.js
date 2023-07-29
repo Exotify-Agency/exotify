@@ -2,8 +2,8 @@
 
 import classes from "./SecuritySection.module.scss";
 
-import Section from "@/components/UI/Elements/Section";
-import Figure from "@/components/UI/Elements/Figure";
+import Section from "@/components/UI/Elements/Section/Section";
+import Figure from "@/components/UI/Elements/Figure/Figure";
 import Animate from "@/components/UI/Animate/Animate";
 import { useReveal } from "@/hooks/useReveal";
 

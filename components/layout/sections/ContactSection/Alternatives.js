@@ -3,7 +3,7 @@
 import classes from "./ContactSection.module.scss";
 
 import business from "@/data/business.json";
-import Button from "@/components/UI/Elements/Button";
+import Button from "@/components/UI/Elements/Button/Button";
 import { useInView } from "react-intersection-observer";
 import Animate from "@/components/UI/Animate/Animate";
 

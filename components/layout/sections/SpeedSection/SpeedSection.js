@@ -3,8 +3,8 @@
 import classes from "./SpeedSection.module.scss";
 
 import Animate from "@/components/UI/Animate/Animate";
-import Figure from "@/components/UI/Elements/Figure";
-import Section from "@/components/UI/Elements/Section";
+import Figure from "@/components/UI/Elements/Figure/Figure";
+import Section from "@/components/UI/Elements/Section/Section";
 import { useReveal } from "@/hooks/useReveal";
 
 const SpeedSection = () => {

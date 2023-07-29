@@ -1,7 +1,7 @@
 import classes from "./Footer.module.scss";
 import business from "@/data/business.json";
 
-import Button from "@/components/UI/Elements/Button";
+import Button from "@/components/UI/Elements/Button/Button";
 
 const links = [
   {

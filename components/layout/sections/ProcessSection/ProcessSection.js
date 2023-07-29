@@ -2,7 +2,7 @@
 
 import classes from "./Process.module.scss";
 
-import Section from "@/components/UI/Elements/Section";
+import Section from "@/components/UI/Elements/Section/Section";
 import ProcessAccordion from "./ProcessAccordion";
 import { useReveal } from "@/hooks/useReveal";
 import Animate from "@/components/UI/Animate/Animate";
