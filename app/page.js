@@ -6,7 +6,7 @@ import Header from "@/components/layout/Header/Header";
 import ContactSection from "@/components/layout/sections/ContactSection/ContactSection";
 import AboutSection from "@/components/layout/sections/AboutSection/AboutSection";
 import ProcessSection from "@/components/layout/sections/ProcessSection/ProcessSection";
-import DesignSection from "@/components/layout/sections/DesignSection.js/DesignSection";
+import DesignSection from "@/components/layout/sections/DesignSection/DesignSection";
 import BusinessSection from "@/components/layout/sections/BusinessSection/BusinessSection";
 import SpeedSection from "@/components/layout/sections/SpeedSection/SpeedSection";
 import SecuritySection from "@/components/layout/sections/SecuritySection/SecuritySection";
