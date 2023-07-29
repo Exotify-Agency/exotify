@@ -47,6 +47,10 @@
 
   &.home &Container {
     animation: revealNav 1s 1s both;
+
+    @include respond(800) {
+      animation: none;
+    }
   }
 
   &.home &Links {
@@ -78,11 +82,15 @@
   }
 
   &Link {
-    & > *,
-    & > *:visited,
-    & > *:link {
+    & > a,
+    & > a:visited,
+    & > a:link {
       @include respond(800) {
         color: var(--c-white);
+      }
+
+      & > *:first-child {
+        background-color: var(--c-white);
       }
     }
 

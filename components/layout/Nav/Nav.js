@@ -21,8 +21,8 @@ const links = [
 const Nav = (props) => {
   const navClassName = [classes.Nav, classes.home].join(" ");
 
-  const linkItems = links.map((link) => (
-    <li key={Math.random()} className={classes.NavLink}>
+  const linkItems = links.map((link, i) => (
+    <li key={i} className={classes.NavLink}>
       <Button buttonType="underline" href={link.href} isLink>
         {link.text}
       </Button>
