@@ -1,0 +1,41 @@
+.Slider {
+  position: relative;
+  justify-self: center;
+
+  display: grid;
+  justify-items: center; // must specify property or flickering occurs
+}
+
+.Slides {
+  position: relative;
+  overflow: hidden visible;
+
+  display: flex;
+}
+.Slide,
+.SlideDOM {
+  padding: 0.5px 0 !important; // Prevent border errors
+}
+
+.Slide {
+  // Watch out for the height of text changing due to change in its width
+  position: absolute;
+}
+
+.SlideDOM {
+  position: relative;
+
+  &,
+  & > * {
+    transition: all 0s !important;
+  }
+}
+
+.Dots {
+  display: flex;
+  gap: 1rem;
+}
+
+.Dot {
+  position: relative;
+}
