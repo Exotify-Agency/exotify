@@ -11,6 +11,8 @@ const Figure = forwardRef(
     {
       className,
       caption,
+      src,
+      alt,
       isVisible = true,
       direction = "down",
       duration = 1,
@@ -18,16 +20,21 @@ const Figure = forwardRef(
       instant,
       includeBorder = false,
       padding = "var(--pd-limit-width)",
-      parallaxOptions,
+      parallaxSpeed = -10,
       tint = false,
+      noSrcSet,
       ...otherProps
     },
     ref
   ) => {
-    const depth = useDepth(-10);
+    const depth = useDepth(parallaxSpeed);
 
-    let figureClassName = [classes.Figure, className ? className : ""];
-    figureClassName = figureClassName.join(" ");
+    let figureClassName = [
+      classes.Figure,
+      className ? className : null,
+      parallaxSpeed !== 0 ? classes.hasParallax : null,
+    ];
+    figureClassName = figureClassName.join(" ").trim();
 
     return (
       <figure className={figureClassName} ref={ref} {...otherProps}>
@@ -49,11 +56,12 @@ const Figure = forwardRef(
             instant={instant}
           >
             <Image
-              src={otherProps.src}
-              alt={otherProps.alt}
+              src={src}
+              alt={alt}
               width={otherProps.width}
               height={otherProps.height}
               ref={depth.ref}
+              noSrcSet
             />
             {tint && <span className={classes.FigureOverlay} />}
           </Animate.ClipIn>
