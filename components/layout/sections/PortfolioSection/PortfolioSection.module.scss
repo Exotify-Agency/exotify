@@ -4,10 +4,16 @@ section.PortfolioSection {
 
   justify-items: center;
   justify-content: center;
+  gap: 5rem;
+
+  & > :global(.header) {
+    color: var(--c-gold);
+  }
 }
 
 .Portfolio {
   &Slider {
+    gap: inherit;
   }
 }
 
@@ -16,16 +22,26 @@ section.PortfolioSection {
 
 .Project {
   $duration: 1s;
+  $width: 30rem;
 
-  width: 26rem;
-  // padding: var(--pd-limit-width);
-  border: 0.1rem solid transparent;
+  width: $width;
+  padding: var(--pd-limit-width);
+  background-color: var(--c-primary);
+  color: var(--txt-basic-l);
+  transition: padding $duration ease, width $duration ease;
 
   display: grid;
   grid-template-rows: repeat(2, auto) 15rem auto;
+  grid-template-columns: 1fr;
   gap: 2rem;
 
+  &:hover &Image {
+    filter: brightness(1);
+  }
+
   &.active {
+    padding: calc(var(--pd-limit-width) + 2rem);
+    width: calc(#{$width} + 2 * 2rem);
   }
 
   &.active &Image {
@@ -37,7 +53,7 @@ section.PortfolioSection {
     aspect-ratio: 1;
     transition: filter $duration;
 
-    filter: brightness(0.75);
+    filter: brightness(0.85);
 
     & img {
       width: 100%;
@@ -54,5 +70,9 @@ section.PortfolioSection {
     margin-top: -4rem;
     position: relative;
     box-shadow: 0 0 2rem -1rem rgba(grey, 0.4);
+  }
+
+  & > p {
+    text-align: center;
   }
 }

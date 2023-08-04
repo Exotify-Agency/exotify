@@ -8,7 +8,8 @@
 
 .Slides {
   position: relative;
-  overflow: hidden visible;
+  // overflow: hidden visible;
+  overflow: visible;
 
   display: flex;
 }
@@ -17,17 +18,13 @@
   padding: 0.5px 0 !important; // Prevent border errors
 }
 
-// Watch out for the height of text changing due to change in its width
 .Slide {
+  // Watch out for the height of text changing due to change in its width
   position: absolute;
 }
 
 .SlideDOM {
   position: relative;
-
-  &.hideImages img {
-    display: none;
-  }
 
   &,
   & > * {

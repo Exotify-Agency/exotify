@@ -1,6 +1,7 @@
 import Button from "@/components/UI/Elements/Button/Button";
 import classes from "./PortfolioSection.module.scss";
 import Image from "@/components/UI/Elements/Image";
+import Border from "@/components/UI/Styling/Border";
 
 const Project = ({
   isVisible,
@@ -14,8 +15,11 @@ const Project = ({
   ...otherProps
 }) => {
   return (
-    <div
+    <Border
       className={[className, classes.Project].join(" ").trim()}
+      isVisible={isActive}
+      padding="2rem"
+      borderStyle="double"
       {...otherProps}
     >
       {/* FIX IMAGE SIZING BC IT CAUSES SLIDER TO LAG DURING ANIMATIONS */}
@@ -29,7 +33,7 @@ const Project = ({
       <Button href={link} buttonType="shine" isLink>
         visit
       </Button>
-    </div>
+    </Border>
   );
 };
 

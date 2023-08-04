@@ -59,7 +59,7 @@ export const useSlider = ({
   // Disables then re-enables slider after duration
   const disableSlider = useCallback(() => {
     setIsDisabled(true);
-    setTimeout(() => setIsDisabled(false), options.duration * 1000 + 50);
+    setTimeout(() => setIsDisabled(false), options.duration * 1000);
   }, [options.duration]);
 
   const nextSlideHandler = () => {

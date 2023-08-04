@@ -32,6 +32,7 @@ const Slide = forwardRef(
     const slide = React.cloneElement(slideComponent, {
       ...slideComponent.props,
       className,
+      slide: !isSlideDOM ? position : null,
       isVisible,
       isActive,
     });
@@ -62,12 +63,7 @@ const Slide = forwardRef(
 
     const styles = !isSlideDOM
       ? {
-          translate: `
-            ${calcTranslate()}
-            ${options.centerSlides ? "-50%" : 0} 
-            .0000000000000000000001px
-          `,
-          willChange: "translate",
+          translate: `${calcTranslate()} ${options.centerSlides ? "-50%" : 0}`,
           top: options.centerSlides ? "50%" : 0,
           visibility: isLoaded ? "visible" : "hidden",
           transition: `translate ${duration}s`,
@@ -78,15 +74,12 @@ const Slide = forwardRef(
           visibility: isLoaded || !isVisible ? "hidden" : "visible",
         };
 
-    const slideClassNames = [
-      !isSlideDOM ? classNames.slide : classes.SlideDOM,
-      isLoaded || !isVisible ? classes.hideImages : null,
-    ]
-      .join(" ")
-      .trim();
-
     return (
-      <div className={slideClassNames} style={styles} ref={ref}>
+      <div
+        className={!isSlideDOM ? classNames.slide : classes.SlideDOM}
+        style={styles}
+        ref={ref}
+      >
         {slide}
       </div>
     );
