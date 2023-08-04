@@ -78,12 +78,15 @@ const Slide = forwardRef(
           visibility: isLoaded || !isVisible ? "hidden" : "visible",
         };
 
+    const slideClassNames = [
+      !isSlideDOM ? classNames.slide : classes.SlideDOM,
+      isLoaded || !isVisible ? classes.hideImages : null,
+    ]
+      .join(" ")
+      .trim();
+
     return (
-      <div
-        className={!isSlideDOM ? classNames.slide : classes.SlideDOM}
-        style={styles}
-        ref={ref}
-      >
+      <div className={slideClassNames} style={styles} ref={ref}>
         {slide}
       </div>
     );
