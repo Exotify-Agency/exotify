@@ -75,7 +75,6 @@ const Button = forwardRef(
       <Tag
         className={buttonClassName}
         href={otherProps.href}
-        scroll={isHashLink ? false : null}
         disabled={isDisabled}
         {...otherProps}
         ref={ref}
