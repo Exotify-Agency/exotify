@@ -2,7 +2,6 @@
 
 section.ProcessSection {
   padding: 0;
-  background: var(--c-primary-d);
 
   @include respond(700) {
     justify-content: center;
