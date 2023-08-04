@@ -69,7 +69,7 @@ const Button = forwardRef(
     }
 
     // Determine tag
-    const Tag = isLink || isHashLink ? Link : "button";
+    const Tag = isLink ? Link : "button";
 
     return (
       <Tag
