@@ -74,7 +74,7 @@ const Message = ({ inView, instant }) => {
         borderStyle="double"
         delay={0.5}
         duration={2}
-        isShown={inView}
+        isVisible={inView}
         instant={instant}
       >
         {/* BACKGROUND */}

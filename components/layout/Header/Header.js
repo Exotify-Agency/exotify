@@ -23,7 +23,7 @@ const Header = (props) => {
       <Border
         className={classes.HeaderContent}
         padding="0rem"
-        isShown={reveal}
+        isVisible={reveal}
         instant={instant}
       >
         {/* BORDERS */}
