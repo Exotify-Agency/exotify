@@ -22,7 +22,7 @@ const Figure = forwardRef(
       padding = "var(--pd-limit-width)",
       parallaxSpeed = -10,
       tint = false,
-      noSrcSet,
+      noSrcSet = false,
       ...otherProps
     },
     ref
@@ -40,7 +40,7 @@ const Figure = forwardRef(
       <figure className={figureClassName} ref={ref} {...otherProps}>
         <Border
           className={classes.FigureContainer}
-          isShown={includeBorder && isVisible}
+          isVisible={includeBorder && isVisible}
           delay={0.25 + delay}
           duration={duration}
           borderStyle="double"
@@ -61,22 +61,10 @@ const Figure = forwardRef(
               width={otherProps.width}
               height={otherProps.height}
               ref={depth.ref}
-              noSrcSet
+              noSrcSet={noSrcSet}
             />
             {tint && <span className={classes.FigureOverlay} />}
           </Animate.ClipIn>
-
-          {/* CAPTION */}
-          <Animate.SlideIn
-            className={classes.FigureCaption}
-            isVisible={isVisible}
-            direction="right"
-            delay={delay}
-            duration={duration}
-            instant={instant}
-          >
-            <figcaption className="caption">{caption}</figcaption>
-          </Animate.SlideIn>
         </Border>
       </figure>
     );
