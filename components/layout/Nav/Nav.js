@@ -23,7 +23,7 @@ const Nav = (props) => {
 
   const linkItems = links.map((link, i) => (
     <li key={i} className={classes.NavLink}>
-      <Button buttonType="underline" href={link.href} isLink>
+      <Button buttonType="underline" href={link.href} isHashLink>
         {link.text}
       </Button>
     </li>

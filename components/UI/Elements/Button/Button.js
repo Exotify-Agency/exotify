@@ -21,6 +21,7 @@ const Button = forwardRef(
     {
       buttonType,
       isLink,
+      isHashLink,
       isActive,
       isDisabled,
       isLoading,
@@ -68,12 +69,13 @@ const Button = forwardRef(
     }
 
     // Determine tag
-    const Tag = isLink ? Link : "button";
+    const Tag = isLink || isHashLink ? Link : "button";
 
     return (
       <Tag
         className={buttonClassName}
         href={otherProps.href}
+        scroll={isHashLink ? false : null}
         disabled={isDisabled}
         {...otherProps}
         ref={ref}
