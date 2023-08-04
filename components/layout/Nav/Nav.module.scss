@@ -90,7 +90,9 @@
       }
 
       & > *:first-child {
-        background-color: var(--c-white);
+        @include respond(800) {
+          background-color: var(--c-white);
+        }
       }
     }
 
