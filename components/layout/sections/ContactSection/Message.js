@@ -80,7 +80,7 @@ const Message = ({ inView, instant }) => {
         {/* BACKGROUND */}
         <Figure
           className={classes.MessageBackground}
-          src="/assets/images/message-1.webp"
+          src="/assets/images/message/message-1.webp"
           alt="Luxurious hotel lobby"
         />
 

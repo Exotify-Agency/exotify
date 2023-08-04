@@ -51,7 +51,7 @@ const Header = (props) => {
           instant={instant}
         >
           <Image
-            src="/assets/images/header-1.webp"
+            src="/assets/images/header/header-1.webp"
             alt="Monte Carlo pier"
             priority
             ref={depthMain.ref}

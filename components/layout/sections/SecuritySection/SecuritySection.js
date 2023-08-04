@@ -20,7 +20,7 @@ const SecuritySection = () => {
         instant={instant}
       >
         <Figure
-          src="/assets/images/security-1.webp"
+          src="/assets/images/security/security-1.webp"
           className={classes.SecurityImage}
           alt="an inpenetrable castle"
           tint

@@ -13,10 +13,10 @@ const DesignSection = () => {
   const { reveal, ref, instant } = useReveal();
 
   return (
-    <Section name="design" className={classes.DesignSection} ref={ref}>
+    <Section className={classes.DesignSection} name="design" ref={ref}>
       <Figure
         className={classes.DesignImage}
-        src="/assets/images/design-1.webp"
+        src="/assets/images/design/design-1.webp"
         alt="renaissance style art painting"
         direction="left"
         duration={1.5}
