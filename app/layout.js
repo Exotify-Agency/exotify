@@ -7,7 +7,7 @@ import business from "@/data/business.json";
 
 import Nav from "@/components/layout/Nav/Nav";
 import Footer from "@/components/layout/Footer/Footer";
-import Providers from "@/components/Providers";
+import { Providers } from "./providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
