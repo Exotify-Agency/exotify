@@ -10,11 +10,11 @@ const links = [
   },
   {
     text: "our story",
-    href: "/#section-about",
+    href: "#section-about",
   },
   {
     text: "contact us",
-    href: "/#section-contact",
+    href: "#section-contact",
   },
 ];
 
