@@ -76,6 +76,7 @@ const Button = forwardRef(
         className={buttonClassName}
         href={otherProps.href}
         disabled={isDisabled}
+        replace={isHashLink ? true : otherProps.replace}
         {...otherProps}
         ref={ref}
       >
