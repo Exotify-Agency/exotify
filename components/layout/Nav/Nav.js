@@ -10,11 +10,11 @@ const links = [
   },
   {
     text: "our story",
-    href: "#section-about",
+    href: "/#section-about",
   },
   {
     text: "contact us",
-    href: "#section-contact",
+    href: "/#section-contact",
   },
 ];
 
@@ -23,7 +23,7 @@ const Nav = (props) => {
 
   const linkItems = links.map((link, i) => (
     <li key={i} className={classes.NavLink}>
-      <Button buttonType="underline" href={link.href} isLink>
+      <Button buttonType="underline" href={link.href} replace isLink>
         {link.text}
       </Button>
     </li>
