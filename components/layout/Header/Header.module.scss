@@ -21,12 +21,16 @@
     @include respond(800) {
       height: 100vh;
       width: 100vw;
-
-      border-color: transparent !important;
     }
 
     @include respond(300) {
       padding: 0;
+    }
+
+    & > span {
+      @include respond(800) {
+        background-color: transparent !important;
+      }
     }
   }
 
