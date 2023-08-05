@@ -38,34 +38,25 @@ const Figure = forwardRef(
 
     return (
       <figure className={figureClassName} ref={ref} {...otherProps}>
-        <Border
-          className={classes.FigureContainer}
-          isVisible={includeBorder && isVisible}
-          delay={0.25 + delay}
+        {/* IMAGE */}
+        <Animate.ClipIn
+          className={classes.FigureImage}
+          isVisible={isVisible}
+          direction={direction}
+          delay={delay}
           duration={duration}
-          borderStyle="double"
-          padding={padding}
+          instant={instant}
         >
-          {/* IMAGE */}
-          <Animate.ClipIn
-            className={classes.FigureImage}
-            isVisible={isVisible}
-            direction={direction}
-            delay={delay}
-            duration={duration}
-            instant={instant}
-          >
-            <Image
-              src={src}
-              alt={alt}
-              width={otherProps.width}
-              height={otherProps.height}
-              ref={depth.ref}
-              noSrcSet={noSrcSet}
-            />
-            {tint && <span className={classes.FigureOverlay} />}
-          </Animate.ClipIn>
-        </Border>
+          <Image
+            src={src}
+            alt={alt}
+            width={otherProps.width}
+            height={otherProps.height}
+            ref={depth.ref}
+            noSrcSet={noSrcSet}
+          />
+          {tint && <span className={classes.FigureOverlay} />}
+        </Animate.ClipIn>
       </figure>
     );
   }
