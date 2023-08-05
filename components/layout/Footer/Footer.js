@@ -51,7 +51,7 @@ const Footer = (props) => {
         <ul className={classes.FooterLinks}>
           {links.map((link) => (
             <li key={Math.random()} className={classes.FooterLink}>
-              <Button buttonType="underline" href={link.href} isHashLink>
+              <Button buttonType="underline" href={link.href} replace isLink>
                 {link.name}
               </Button>
             </li>
