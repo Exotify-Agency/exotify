@@ -49,20 +49,19 @@ const Button = forwardRef(
 
     // Determine content
     let content;
-    if (buttonType === "sliderPrev" || buttonType === "sliderNext") {
+    if (buttonType === "dot") {
+      content = <span className={classes.line} />;
+    } else if (buttonType === "sliderNext" || buttonType === "sliderPrev") {
       content = (
-        <Fragment>
-          <span className={classes.arrow}>
-            {buttonType === "sliderPrev" && (
-              <span className={classes.arrowHead} />
-            )}
-            <span className={classes.arrowTail} />
-
-            {buttonType === "sliderNext" && (
-              <span className={classes.arrowHead} />
-            )}
-          </span>
-        </Fragment>
+        <>
+          {buttonType === "sliderPrev" && (
+            <span className={classes.arrowHead} />
+          )}
+          <span className={classes.arrowTail} />
+          {buttonType === "sliderNext" && (
+            <span className={classes.arrowHead} />
+          )}
+        </>
       );
     } else if (buttonType === "underline") {
       content = <span className={classes.underline} />;

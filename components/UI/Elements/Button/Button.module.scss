@@ -1,5 +1,5 @@
 .Button {
-  $btn-trans: 0.2s;
+  $duration: 0.2s;
   $pd-top: 1.3rem;
   $pd-left: 2.5rem;
 
@@ -65,7 +65,7 @@
     background-color: var(--c-gold);
     color: var(--txt-title-l);
 
-    transition: filter $btn-trans;
+    transition: filter $duration;
   }
 
   &Gold,
@@ -110,7 +110,7 @@
     min-width: 0;
 
     & .children {
-      transition: translate $btn-trans ease-in-out;
+      transition: translate $duration ease-in-out;
     }
 
     &:hover,
@@ -132,7 +132,7 @@
       width: 0%;
       translate: 0 -100%;
 
-      transition: width $btn-trans ease-in-out;
+      transition: width $duration ease-in-out;
     }
   }
 
@@ -150,8 +150,8 @@
     border: 0.1rem solid var(--bd-gold);
     color: var(--bd-gold);
 
-    transition: color $btn-trans, background-color $btn-trans,
-      background-position $btn-trans, gap $btn-trans, translate $btn-trans;
+    transition: color $duration, background-color $duration,
+      background-position $duration, gap $duration, translate $duration;
 
     &:hover,
     &:focus-within {
@@ -178,52 +178,12 @@
       transparent 100%
     );
     color: var(--txt-title-l);
-    transition: gap $btn-trans;
+    transition: gap $duration;
 
     &:hover,
     &:focus-within {
-      transition: background-position 0.6s, gap $btn-trans;
+      transition: background-position 0.6s, gap $duration;
       background-position: -50%;
-    }
-  }
-
-  &Google,
-  &Google:link,
-  &Google:visited {
-    background-color: var(--bg-secondary);
-    color: var(--txt-title);
-
-    transition: filter $btn-trans;
-
-    &:hover,
-    &:focus-within {
-    }
-  }
-
-  &Facebook,
-  &Facebook:link,
-  &Facebook:visited {
-    $bg-color: #4267b2;
-    background-color: $bg-color;
-    color: var(--txt-title-l);
-
-    transition: filter $btn-trans;
-
-    &:hover,
-    &:focus-within {
-    }
-  }
-
-  &Apple,
-  &Apple:link,
-  &Apple:visited {
-    background-color: var(--txt-title);
-    color: var(--txt-title-l);
-
-    transition: filter $btn-trans;
-
-    &:hover,
-    &:focus-within {
     }
   }
 
@@ -233,86 +193,61 @@
   &SliderPrev,
   &SliderPrev:link,
   &SliderPrev:visited {
-    $tail-length: 1.5rem;
-
-    background-color: transparent;
-    border: 0.2rem solid var(--bd-gold);
-    height: 2rem;
-    width: 5rem;
-    min-width: 0;
-    padding: 0;
-    overflow: visible;
-
-    align-items: center;
-
-    transition: height $btn-trans, width $btn-trans;
-
-    &:hover,
-    &:focus-within {
-      & .arrowTail {
-        width: 5rem;
-      }
+    &:hover > .arrowTail,
+    &:focus-visible > .arrowTail {
     }
 
-    & .arrow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
+    & > .arrowHead {
+    }
 
-      display: flex;
-      align-items: center;
-
-      transition: left $btn-trans ease-in-out;
-
-      &Tail {
-        height: 0.2rem;
-        width: $tail-length;
-        background-color: var(--bd-gold);
-        transition: width $btn-trans ease-in-out;
-      }
-
-      &Head {
-        height: 0.75rem;
-        width: 0.75rem;
-        rotate: 45deg;
-      }
+    & > .arrowTail {
     }
   }
 
   &SliderNext,
   &SliderNext:link,
   &SliderNext:visited {
-    &:hover,
-    &:focus-within {
-      & .arrow {
-        left: calc(50% + 1.75rem);
-      }
-    }
-
-    & .arrowHead {
-      margin-right: -1rem;
-      border-top: 0.2rem solid var(--bd-gold);
-      border-right: 0.2rem solid var(--bd-gold);
-      translate: -100% 0;
+    & > .arrowHead {
     }
   }
 
   &SliderPrev,
   &SliderPrev:link,
   &SliderPrev:visited {
-    &:hover,
-    &:focus-within {
-      & .arrow {
-        left: calc(50% - 1.75rem);
-      }
+    & > .arrowHead {
+    }
+  }
+
+  &Dot,
+  &Dot:link,
+  &Dot:visited {
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: 1rem;
+    background-color: transparent;
+
+    align-items: center;
+
+    &:global(.active) > .line {
+      background-color: var(--c-gold);
     }
 
-    & .arrowHead {
-      margin-left: -1rem;
-      border-bottom: 0.2rem solid var(--bd-gold);
-      border-left: 0.2rem solid var(--bd-gold);
-      translate: 100% 0;
+    &:disabled {
+      opacity: unset;
+    }
+
+    &:hover > .line,
+    &:focus-within > .line {
+      height: 0.75rem;
+    }
+
+    & > .line {
+      width: 7.5rem;
+      height: 0.25rem;
+      background-color: var(--c-primary);
+
+      transition: height $duration ease, background $duration ease;
     }
   }
 }
