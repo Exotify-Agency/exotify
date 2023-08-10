@@ -1,5 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slide from "./Slide";
+
+import classes from "./Slider.module.scss";
 
 const Slides = ({ slides, slide, totalChange, options, classNames }) => {
   // Dynamic dimensions that are automatically calculated
@@ -76,9 +78,9 @@ const Slides = ({ slides, slide, totalChange, options, classNames }) => {
   });
 
   const styles = {
+    transition: `height ${options.duration}s, width ${options.duration}s`,
     width: isLoaded ? width : "auto",
     height: isLoaded ? height : "auto",
-    transition: `height ${options.duration}s, width ${options.duration}s`,
 
     // For SlideDOMs
     alignItems: options.centerSlides ? "center" : null,

@@ -1,21 +1,27 @@
 .Slider {
   position: relative;
-  justify-self: center;
 
   display: grid;
-  justify-items: center; // must specify property or flickering occurs
+}
+
+.SliderMain {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+
+  display: grid;
+  justify-content: center; // Change this value
 }
 
 .Slides {
   position: relative;
-  // overflow: hidden visible;
-  overflow: visible;
 
   display: flex;
 }
+
 .Slide,
 .SlideDOM {
-  padding: 0.5px 0 !important; // Prevent border errors
+  padding: 0.5px 0 !important; // Prevents border errors
 }
 
 .Slide {
@@ -34,6 +40,7 @@
 
 .Dots {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 

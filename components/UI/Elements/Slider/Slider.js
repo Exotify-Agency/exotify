@@ -20,6 +20,7 @@ const Slider = ({
   const combine = (...classes) => classes.join(" ").trim();
   classNames = {
     slider: combine(classNames.slider || null, classes.Slider),
+    sliderMain: combine(classNames.sliderMain || null, classes.SliderMain),
     slide: combine(classNames.slide || null, classes.Slide), // appears on slide, not element inside
     slides: combine(classNames.slides || null, classes.Slides),
     sliderPrev: combine(classNames.sliderPrev || null, classes.SliderPrev),
@@ -33,8 +34,8 @@ const Slider = ({
   };
 
   elements = {
-    sliderNext: elements.sliderNext || <button />,
-    sliderPrev: elements.sliderPrev || <button />,
+    sliderNext: elements.sliderNext || <button>Next</button>,
+    sliderPrev: elements.sliderPrev || <button>Prev</button>,
     dot: elements.dot || <button />,
   };
 
@@ -62,8 +63,10 @@ const Slider = ({
 
   return (
     <div className={classNames.slider}>
-      <Slides {...slidesData} />
-      {!options.hideButtons && !options.hideDots && <Dots {...dotsData} />}
+      <div className={classNames.sliderMain}>
+        <Slides {...slidesData} />
+      </div>
+      {(!options.hideButtons || !options.hideDots) && <Dots {...dotsData} />}
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Dots = ({
       onClick: prevSlide,
       disabled: isDisabled || isPrevDisabled,
     },
-    elements.sliderPrev.props.children || "Prev"
+    elements.sliderPrev.props.children
   );
 
   const nextSlideButton = React.cloneElement(
@@ -30,13 +30,13 @@ const Dots = ({
       onClick: nextSlide,
       disabled: isDisabled || isNextDisabled,
     },
-    elements.sliderNext.props.children || "Next"
+    elements.sliderNext.props.children
   );
 
   // Generate dot elements
   const dotButtons = slides.map((dot, i) => {
     const isVisible = i >= slide && i < slide + options.visibleSlides;
-    const isActive = i === slide + options.activeSlide;
+    const isActive = i === slide;
     const className = [
       classNames.dot,
       isVisible ? classNames.visibleDot : null,

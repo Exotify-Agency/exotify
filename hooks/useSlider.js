@@ -10,6 +10,7 @@ export const useSlider = ({
     jump: options.jump || 1,
     gap: options.gap || "1rem", // must include css unit
     duration: options.duration || 1,
+    autoScrollDuration: options.autoScrollDuration || 3,
     animation: options.animation || "normal", // "normal" | "clip"
     initialSlide: options.initialSlide || 0,
     activeSlide: options.activeSlide || null,
@@ -20,6 +21,7 @@ export const useSlider = ({
     allowBleed: options.allowBleed || false,
     centerSlides: options.centerSlides || true,
     showDotText: options.showDotText || false,
+    autoScroll: options.autoScroll || false,
   };
 
   const [slide, setSlide] = useState(options.initialSlide); // used to determine slide position
@@ -62,7 +64,7 @@ export const useSlider = ({
     setTimeout(() => setIsDisabled(false), options.duration * 1000);
   }, [options.duration]);
 
-  const nextSlideHandler = () => {
+  const nextSlideHandler = useCallback(() => {
     disableSlider();
 
     const newSlide = slide + options.jump;
@@ -82,9 +84,9 @@ export const useSlider = ({
       setSlide((prev) => (prev += options.jump));
       setTotalChange((prev) => (prev += options.jump));
     }
-  };
+  }, [disableSlider, options, slide, slides]);
 
-  const prevSlideHandler = () => {
+  const prevSlideHandler = useCallback(() => {
     disableSlider();
 
     const newSlide = slide - options.jump;
@@ -102,29 +104,43 @@ export const useSlider = ({
       setSlide((prev) => (prev -= options.jump));
       setTotalChange((prev) => (prev -= options.jump));
     }
-  };
+  }, [disableSlider, options, slide, slides]);
 
-  const setSlideHandler = (newSlide) => {
-    disableSlider();
+  const setSlideHandler = useCallback(
+    (newSlide) => {
+      disableSlider();
 
-    const leftBorder = 0;
-    const rightBorder = options.allowBleed
-      ? slides.length - 1 // last slide
-      : slides.length - options.visibleSlides; // last slide without looping
-    const exceedsLeftBorder = newSlide < leftBorder;
-    const exceedsRightBorder = newSlide > rightBorder;
+      const leftBorder = 0;
+      const rightBorder = options.allowBleed
+        ? slides.length - 1 // last slide
+        : slides.length - options.visibleSlides; // last slide without looping
+      const exceedsLeftBorder = newSlide < leftBorder;
+      const exceedsRightBorder = newSlide > rightBorder;
 
-    if (exceedsLeftBorder && !options.infiniteLoop) {
-      setSlide(leftBorder);
-      setTotalChange((prev) => (prev -= leftBorder - slide));
-    } else if (exceedsRightBorder && !options.infiniteLoop) {
-      setSlide(rightBorder);
-      setTotalChange((prev) => (prev += rightBorder - slide));
-    } else {
-      setSlide(newSlide);
-      setTotalChange((prev) => (prev -= slide - newSlide));
-    }
-  };
+      if (exceedsLeftBorder && !options.infiniteLoop) {
+        setSlide(leftBorder);
+        setTotalChange((prev) => (prev -= leftBorder - slide));
+      } else if (exceedsRightBorder && !options.infiniteLoop) {
+        setSlide(rightBorder);
+        setTotalChange((prev) => (prev += rightBorder - slide));
+      } else {
+        setSlide(newSlide);
+        setTotalChange((prev) => (prev -= slide - newSlide));
+      }
+    },
+    [disableSlider, options, slide, slides]
+  );
+
+  // Auto scroll effect
+  useEffect(() => {
+    if (!options.autoScroll) return;
+
+    const interval = setInterval(() => {
+      nextSlideHandler();
+    }, options.autoScrollDuration * 1000);
+
+    return () => clearInterval(interval);
+  }, [options, nextSlideHandler]);
 
   return {
     slides,
