@@ -19,6 +19,7 @@ const Dots = ({
       className: classNames.sliderPrev,
       onClick: prevSlide,
       disabled: isDisabled || isPrevDisabled,
+      "aria-label": "previous slide",
     },
     elements.sliderPrev.props.children
   );
@@ -29,6 +30,7 @@ const Dots = ({
       className: classNames.sliderNext,
       onClick: nextSlide,
       disabled: isDisabled || isNextDisabled,
+      "aria-label": "next slide",
     },
     elements.sliderNext.props.children
   );
@@ -49,6 +51,7 @@ const Dots = ({
         key: i,
         className,
         onClick: setSlide.bind(null, i),
+        "aria-label": `select slide ${i + 1}`,
         disabled:
           isDisabled ||
           i === slide ||
