@@ -77,7 +77,6 @@ const Slide = forwardRef(
     return (
       <div
         className={!isSlideDOM ? classNames.slide : classes.SlideDOM}
-        aria-hidden={!isVisible ? true : null}
         style={styles}
         ref={ref}
       >
