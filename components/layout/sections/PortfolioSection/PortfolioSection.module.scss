@@ -1,9 +1,9 @@
 section.PortfolioSection {
   padding-bottom: calc(var(--pd-section-top) * 2);
-  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
 
   justify-items: center;
-  justify-content: center;
   gap: 5rem;
 
   & > :global(.header) {
@@ -13,7 +13,14 @@ section.PortfolioSection {
 
 .Portfolio {
   &Slider {
-    gap: inherit;
+    gap: var(--pd-limit-width);
+    justify-items: center;
+  }
+
+  &Dots {
+    display: flex;
+    align-items: center;
+    gap: 0;
   }
 }
 
