@@ -24,7 +24,7 @@ const Project = ({
     >
       {/* FIX IMAGE SIZING BC IT CAUSES SLIDER TO LAG DURING ANIMATIONS */}
       <div className={classes.ProjectImage}>
-        <Image src={image} alt={name} noSrcSet />
+        <Image src={image} alt={name} />
       </div>
       <div className={classes.ProjectName}>
         <h3 className="header header-3">{name}</h3>
