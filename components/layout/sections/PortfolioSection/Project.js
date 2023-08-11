@@ -4,9 +4,11 @@ import Image from "@/components/UI/Elements/Image";
 import Border from "@/components/UI/Styling/Border";
 
 const Project = ({
+  slide,
   isVisible,
   isActive,
   className,
+
   image,
   name,
   summary,

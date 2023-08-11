@@ -40,30 +40,30 @@ const data = [
   },
 ];
 
-const slides = data.map((data, i) => <Project key={i} {...data} />);
-
-const classNames = {
-  activeSlide: classes.active,
-  activeDot: classes.active,
-  slider: classes.PortfolioSlider,
-  dots: classes.PortfolioDots,
-};
-
-const elements = {
-  dot: <Button buttonType="dot" />,
-};
-
-const options = {
-  visibleSlides: 5,
-  activeSlide: 2,
-  infiniteLoop: true,
-  // autoScroll: true,
-  duration: 1, // edit in css too
-  gap: "calc(var(--pd-limit-width) * 2)",
-  hideButtons: true,
-};
-
 const PortfolioSlider = () => {
+  const slides = data.map((data, i) => <Project key={i} {...data} />);
+
+  const classNames = {
+    activeSlide: classes.active,
+    activeDot: classes.active,
+    slider: classes.PortfolioSlider,
+    dots: classes.PortfolioDots,
+  };
+
+  const elements = {
+    dot: <Button buttonType="dot" />,
+  };
+
+  const options = {
+    visibleSlides: 5,
+    activeSlide: 2,
+    infiniteLoop: true,
+    // autoScroll: true,
+    duration: 1, // edit in css too
+    gap: "calc(var(--pd-limit-width) * 2)",
+    hideButtons: true,
+  };
+
   const slider = useSlider({ slides, classNames, options, elements });
 
   return <Slider {...slider} />;
