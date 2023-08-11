@@ -24,12 +24,11 @@ const Project = ({
       borderStyle="double"
       {...otherProps}
     >
-      {/* FIX IMAGE SIZING BC IT CAUSES SLIDER TO LAG DURING ANIMATIONS */}
       <div className={classes.ProjectImage}>
         <Image src={image} alt={name} />
-      </div>
-      <div className={classes.ProjectName}>
-        <h3 className="header header-3">{name}</h3>
+        <div className={classes.ProjectName}>
+          <h3 className="header header-3">{name}</h3>
+        </div>
       </div>
       <p className="paragraph">{description}</p>
       <Button href={link} buttonType="shine" isLink>
