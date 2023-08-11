@@ -1,3 +1,5 @@
+@import "@/sass/abstracts/mixins";
+
 section.PortfolioSection {
   padding-bottom: calc(var(--pd-section-top) * 2);
   padding-left: 0;
@@ -7,7 +9,7 @@ section.PortfolioSection {
   gap: 5rem;
 
   & > :global(.header) {
-    color: var(--c-gold);
+    color: var(--c-primary);
   }
 }
 
@@ -24,10 +26,46 @@ section.PortfolioSection {
   }
 }
 
-.Projects {
+.Titlebar {
+  color: var(--c-gold);
+  position: relative;
+
+  &Left,
+  &Right {
+    &Wrapper {
+      top: 50%;
+      translate: 0 -50%;
+      height: calc(100% - 3rem);
+      width: 1rem;
+      position: absolute;
+    }
+
+    background-color: currentColor;
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  &LeftWrapper {
+    right: 100%;
+  }
+
+  &RightWrapper {
+    left: 100%;
+  }
+
+  &Main {
+    background-color: var(--c-primary);
+    padding: 1.5rem 3rem;
+    color: currentColor;
+  }
 }
 
 .Project {
+  &Wrapper {
+    position: relative;
+  }
+
   $duration: 1s;
   $width: 30rem;
 
@@ -38,7 +76,7 @@ section.PortfolioSection {
   transition: padding $duration ease, width $duration ease;
 
   display: grid;
-  grid-template-rows: repeat(w, auto) 15rem auto;
+  grid-template-rows: repeat(1, auto) 15rem auto;
   grid-template-columns: 1fr;
   gap: 2rem;
 

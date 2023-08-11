@@ -33,7 +33,7 @@
   position: relative;
 
   &,
-  & > * {
+  & * {
     transition: all 0s !important;
   }
 }

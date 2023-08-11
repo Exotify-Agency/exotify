@@ -40,8 +40,10 @@ const data = [
   },
 ];
 
-const PortfolioSlider = () => {
-  const slides = data.map((data, i) => <Project key={i} {...data} />);
+const PortfolioSlider = ({ reveal, instant }) => {
+  const slides = data.map((data, i) => (
+    <Project key={i} reveal={reveal} instant={instant} {...data} />
+  ));
 
   const classNames = {
     activeSlide: classes.active,
@@ -58,7 +60,7 @@ const PortfolioSlider = () => {
     visibleSlides: 5,
     activeSlide: 2,
     infiniteLoop: true,
-    // autoScroll: true,
+    autoScroll: true,
     duration: 1, // edit in css too
     gap: "calc(var(--pd-limit-width) * 2)",
     hideButtons: true,
