@@ -8,6 +8,10 @@ section.PortfolioSection {
   justify-items: center;
   gap: 5rem;
 
+  @include respond(600) {
+    padding-bottom: 0;
+  }
+
   & > :global(.header) {
     color: var(--c-primary);
   }
