@@ -32,7 +32,7 @@ const AboutSection = () => {
         >
           <Figure
             className={classes.AboutImage}
-            src="/assets/images/about/about-1.webp"
+            src="/assets/app/about/about-1.webp"
             alt="Image of car beside cartier store"
             tint
           />

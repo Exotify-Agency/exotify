@@ -12,7 +12,7 @@ const cards = [
   {
     title: "Search engine optimization",
     description:
-      "We incorporate best practices in SEO into all of our websites to help improve search engine rankings and drive more traffic to your website.",
+      "Your website will be guaranteed to follow all of Google's recommended SEO optimizations. This keeps your clients waiting less, and Google's search engine favouring you more.",
     icon: <i className="bi bi-search" />,
     backdropText: "01",
     delay: 0.75 + 0 * staggerDuration,
@@ -30,7 +30,7 @@ const cards = [
   {
     title: "Analytics and reporting",
     description:
-      "We provide robust analytics and reporting tools that help you track website performance, measure ROI, and optimize your digital marketing strategies.",
+      "See exactly what your users are experiencing with built in analytics. This helps you target which aspects of the business you can focus on, in order to increase conversion.",
     icon: <i class="bi bi-bar-chart-line" />,
     backdropText: "03",
     delay: 0.75 + 1 * staggerDuration,

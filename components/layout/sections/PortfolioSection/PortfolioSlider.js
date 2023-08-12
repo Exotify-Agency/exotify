@@ -9,7 +9,7 @@ const data = [
   {
     name: "Natours",
     summary: "Tour booking website",
-    image: "/assets/images/portfolio/project-1/project-1.webp",
+    image: "/assets/app/portfolio/project-1/project-1.webp",
     description:
       "A website that combines multiple aspects of technological advances in order to provide a solid and smooth booking experience",
     link: "https://natours.netlify.app/",
@@ -17,7 +17,7 @@ const data = [
   {
     name: "Nexter",
     summary: "Real estate firm",
-    image: "/assets/images/portfolio/project-2/project-2.webp",
+    image: "/assets/app/portfolio/project-2/project-2.webp",
     description:
       "A luxurious website that cuts straight to the point. It features an interactive home listing grid layout that highlights the key parts of any home.",
     link: "https://nexter.netlify.app/",
@@ -25,7 +25,7 @@ const data = [
   {
     name: "Trillo",
     summary: "Vacation rating website",
-    image: "/assets/images/portfolio/project-3/project-3.webp",
+    image: "/assets/app/portfolio/project-3/project-3.webp",
     description:
       "Rate vacations that you've went to, as well as look at other vacations. You can see every metric needed in order to make an informed decision on your getaway!",
     link: "https://trillo.netlify.app/",
@@ -33,7 +33,7 @@ const data = [
   {
     name: "Exotify",
     summary: "Web design agency",
-    image: "/assets/images/portfolio/project-4/project-4.webp",
+    image: "/assets/app/portfolio/project-4/project-4.webp",
     description:
       "A website that includes almost every feature imaginable at a stunning scale. This is sure to convince unsure customers to choose them instead of other web design agencies.",
     link: "https://exotify.ca/",

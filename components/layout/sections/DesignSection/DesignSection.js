@@ -16,7 +16,7 @@ const DesignSection = () => {
     <Section className={classes.DesignSection} name="design" ref={ref}>
       <Figure
         className={classes.DesignImage}
-        src="/assets/images/design/design-1.webp"
+        src="/assets/app/design/design-1.webp"
         alt="renaissance style art painting"
         direction="left"
         duration={1.5}
@@ -51,11 +51,22 @@ const DesignSection = () => {
             instant={instant}
           >
             <p className="paragraph">
-              Our website development agency provides custom web design services
-              that are tailored to the unique needs and goals of each client.
-              Our team of experienced designers will work with you to create a
-              visually stunning and user-friendly website that reflects your
-              brand identity and engages your target audience.
+              Your website is tailored with your goals in mind. You need
+              customers that trust you and stay loyal due to your outstanding
+              service.
+            </p>
+          </Animate.SlideIn>
+          <Animate.SlideIn
+            direction="right"
+            delay={1.25}
+            duration={1.5}
+            isVisible={reveal}
+            instant={instant}
+          >
+            <p className="paragraph">
+              Having a website design that looks professional is crucial for
+              this to occur, since it lays the foundation for what your clients
+              perceive your business to be.
             </p>
           </Animate.SlideIn>
         </div>

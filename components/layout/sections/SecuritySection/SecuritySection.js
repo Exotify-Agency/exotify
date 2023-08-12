@@ -20,7 +20,7 @@ const SecuritySection = () => {
         instant={instant}
       >
         <Figure
-          src="/assets/images/security/security-1.webp"
+          src="/assets/app/security/security-1.webp"
           className={classes.SecurityImage}
           alt="an inpenetrable castle"
           tint
@@ -41,7 +41,7 @@ const SecuritySection = () => {
             isVisible={reveal}
           >
             <p className="paragraph">
-              Our websites are built like a strong castle. We utilize the most
+              Your websites is built like a strong castle. We utilize the most
               advanced tools to fend off cyber attacks that may threaten your
               business. Nothing gets in, nothing gets out.
             </p>

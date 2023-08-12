@@ -14,7 +14,7 @@ const SpeedSection = () => {
     <Section name="speed" className={classes.SpeedSection} ref={ref}>
       <Figure
         className={classes.SpeedImage}
-        src="/assets/images/speed/speed-1.webp"
+        src="/assets/app/speed/speed-1.webp"
         alt="red ferrari"
         direction="down"
         duration={1.75}

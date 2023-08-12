@@ -23,6 +23,7 @@ export default function Home() {
     <Fragment>
       <Header />
       <AboutSection />
+      <PortfolioSection />
 
       {/* FEATURES */}
       <DesignSection />
@@ -30,7 +31,6 @@ export default function Home() {
       <SpeedSection />
       <SecuritySection />
 
-      <PortfolioSection />
       <ProcessSection />
       <ContactSection />
     </Fragment>

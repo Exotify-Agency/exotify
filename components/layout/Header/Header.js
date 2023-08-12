@@ -51,7 +51,7 @@ const Header = (props) => {
           instant={instant}
         >
           <Image
-            src="/assets/images/header/header-1.webp"
+            src="/assets/app/header/header-1.webp"
             alt="Monte Carlo pier"
             priority
             ref={depthMain.ref}
@@ -79,7 +79,7 @@ const Header = (props) => {
             instant={instant}
           >
             <p className="subtitle">
-              A service based agency that creates stunning websites
+              A web design and digital marketing agency
             </p>
           </Animate.SlideIn>
         </Animate.ClipIn>
