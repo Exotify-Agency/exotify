@@ -44,7 +44,7 @@ const PortfolioSection = () => {
               direction="up"
               delay={0.5}
             >
-              <h2 className="header header-2">Our Projects</h2>
+              <h2 className="header header-2">Our Designs</h2>
             </Animate.SlideIn>
           </div>
         </Animate.SlideIn>
