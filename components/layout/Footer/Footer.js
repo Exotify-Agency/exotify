@@ -69,6 +69,10 @@ const Footer = (props) => {
           ))}
         </ul>
       </div>
+      <div className={classes.FooterCopyright}>
+        © {"2023 - " + new Date().getFullYear()}, Arian Fallahpour, All Rights
+        Reserved.
+      </div>
     </footer>
   );
 };

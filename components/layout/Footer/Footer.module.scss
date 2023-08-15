@@ -2,6 +2,11 @@
 
 .Footer {
   background-color: var(--c-primary-d);
+  padding: 7.5rem 0 2.5rem 0;
+
+  display: grid;
+  gap: 5rem;
+  justify-items: center;
 
   &.hidden {
     display: none;
@@ -21,8 +26,6 @@
 
   &Container {
     @include limitWidth(80vw);
-
-    padding: 7.5rem 0;
 
     display: grid;
     grid-template-columns: auto auto 1fr auto auto;
@@ -85,5 +88,9 @@
     }
 
     // FIX: alignment when <500
+  }
+
+  &Copyright {
+    color: var(--c-gold);
   }
 }
