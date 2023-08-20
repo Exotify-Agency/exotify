@@ -93,15 +93,3 @@ export default Button;
 function toCap(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-function scrollTo(el) {
-  const top = el.getBoundingClientRect().top + window.scrollY;
-  const height = el.getBoundingClientRect().height;
-  const viewPortHeight = window.innerHeight;
-  const centeringDistance = (viewPortHeight - height) / 2;
-
-  window.scrollTo({
-    top: top - centeringDistance,
-    behavior: "smooth",
-  });
-}
