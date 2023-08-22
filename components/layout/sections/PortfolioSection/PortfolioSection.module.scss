@@ -86,24 +86,15 @@ section.PortfolioSection {
   grid-template-columns: 1fr;
   gap: 2rem;
 
-  &:hover &Image {
-    filter: brightness(1);
-  }
-
   &.active {
     padding: calc(var(--pd-limit-width) + 2rem);
     width: calc(#{$width} + 2 * 2rem);
-  }
-
-  &.active &Image {
-    filter: brightness(1);
   }
 
   &Image {
     display: grid;
     transition: filter $duration;
     background-color: var(--c-primary-l);
-    filter: brightness(0.85);
 
     & img {
       $padding: 1.5rem;
