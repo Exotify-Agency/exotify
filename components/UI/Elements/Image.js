@@ -1,4 +1,8 @@
-import React, { forwardRef } from "react";
+"use client";
+
+import React, { forwardRef, useCallback } from "react";
+import { useInView } from "react-intersection-observer";
+import { isMobile } from "react-device-detect";
 
 // Treat component as img
 const Image = forwardRef(
@@ -13,9 +17,21 @@ const Image = forwardRef(
     },
     ref
   ) => {
+    const { ref: inViewRef, inView } = useInView({ rootMargin: "100px" });
+
     const split = src.split(".");
     const path = split[0];
     const ext = split[split.length - 1];
+
+    const callbackRef = useCallback(
+      (node) => {
+        if (!node) return;
+
+        if (ref) ref.current = node;
+        inViewRef(node);
+      },
+      [ref, inViewRef]
+    );
 
     return (
       <picture style={{ display: "contents" }}>
@@ -23,7 +39,7 @@ const Image = forwardRef(
         {!noSrcSet && (
           <source
             style={{ display: "none" }}
-            srcSet={src}
+            srcSet={inView || priority || !isMobile ? src : null}
             media="(min-width: 1700px)"
           />
         )}
@@ -32,7 +48,11 @@ const Image = forwardRef(
         {!noSrcSet && (
           <source
             style={{ display: "none" }}
-            srcSet={`${path}-computer-1x.${ext} 1x, ${path}-computer-2x.${ext} 2x`}
+            srcSet={
+              inView || priority || !isMobile
+                ? `${path}-computer-1x.${ext} 1x, ${path}-computer-2x.${ext} 2x`
+                : null
+            }
             media="(min-width: 900px)"
           />
         )}
@@ -41,7 +61,11 @@ const Image = forwardRef(
         {!noSrcSet && (
           <source
             style={{ display: "none" }}
-            srcSet={`${path}-tablet-1x.${ext} 1x, ${path}-tablet-2x.${ext} 2x`}
+            srcSet={
+              inView || priority || !isMobile
+                ? `${path}-tablet-1x.${ext} 1x, ${path}-tablet-2x.${ext} 2x`
+                : null
+            }
             media="(min-width: 450px)"
           />
         )}
@@ -50,19 +74,23 @@ const Image = forwardRef(
         {!noSrcSet && (
           <source
             style={{ display: "none" }}
-            srcSet={`${path}-mobile-1x.${ext} 1x, ${path}-mobile-2x.${ext} 2x`}
+            srcSet={
+              inView || priority || !isMobile
+                ? `${path}-mobile-1x.${ext} 1x, ${path}-mobile-2x.${ext} 2x`
+                : null
+            }
           />
         )}
 
         {/* FALLBACK */}
         <img
-          src={src}
+          src={inView || priority || !isMobile ? src : null}
           alt={alt}
           fetchPriority={priority ? "high" : "auto"}
           loading={priority ? "eager" : null}
-          onLoad={(e) => e.target.classList.add("visible")}
+          // onLoad={(e) => e.target.classList.add("visible")}
           {...otherProps}
-          ref={ref}
+          ref={callbackRef}
         />
       </picture>
     );
