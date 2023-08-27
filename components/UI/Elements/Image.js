@@ -2,7 +2,6 @@
 
 import React, { forwardRef, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
-import { isMobile } from "react-device-detect";
 
 // Treat component as img
 const Image = forwardRef(
@@ -39,7 +38,7 @@ const Image = forwardRef(
         {!noSrcSet && (
           <source
             style={{ display: "none" }}
-            srcSet={inView || priority || !isMobile ? src : null}
+            srcSet={inView || priority ? src : null}
             media="(min-width: 1700px)"
           />
         )}
@@ -49,7 +48,7 @@ const Image = forwardRef(
           <source
             style={{ display: "none" }}
             srcSet={
-              inView || priority || !isMobile
+              inView || priority
                 ? `${path}-computer-1x.${ext} 1x, ${path}-computer-2x.${ext} 2x`
                 : null
             }
@@ -62,7 +61,7 @@ const Image = forwardRef(
           <source
             style={{ display: "none" }}
             srcSet={
-              inView || priority || !isMobile
+              inView || priority
                 ? `${path}-tablet-1x.${ext} 1x, ${path}-tablet-2x.${ext} 2x`
                 : null
             }
@@ -75,7 +74,7 @@ const Image = forwardRef(
           <source
             style={{ display: "none" }}
             srcSet={
-              inView || priority || !isMobile
+              inView || priority
                 ? `${path}-mobile-1x.${ext} 1x, ${path}-mobile-2x.${ext} 2x`
                 : null
             }
@@ -84,7 +83,7 @@ const Image = forwardRef(
 
         {/* FALLBACK */}
         <img
-          src={inView || priority || !isMobile ? src : null}
+          src={inView || priority ? src : null}
           alt={alt}
           fetchPriority={priority ? "high" : "auto"}
           loading={priority ? "eager" : null}
