@@ -16,7 +16,10 @@ const Image = forwardRef(
     },
     ref
   ) => {
-    const { ref: inViewRef, inView } = useInView({ rootMargin: "100px" });
+    const { ref: inViewRef, inView } = useInView({
+      rootMargin: "100px",
+      triggerOnce: true,
+    });
 
     const split = src.split(".");
     const path = split[0];
