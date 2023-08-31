@@ -17,7 +17,7 @@ const Image = forwardRef(
     ref
   ) => {
     const { ref: inViewRef, inView } = useInView({
-      rootMargin: "100px",
+      rootMargin: "200px",
       triggerOnce: true,
     });
 
