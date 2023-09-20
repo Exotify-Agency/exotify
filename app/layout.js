@@ -31,6 +31,18 @@ export const metadata = {
     icon: "/assets/logo.ico",
     apple: "/assets/logo.png",
   },
+  twitter: {
+    title: "Exotify Digital Marketing",
+    description:
+      "A reliable web development and digital marketing agency that increases your conversions.",
+    images: ["/assets/preview.png"],
+  },
+  openGraph: {
+    title: "Exotify Digital Marketing",
+    description:
+      "A reliable web development and digital marketing agency that increases your conversions.",
+    images: ["/assets/preview.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
