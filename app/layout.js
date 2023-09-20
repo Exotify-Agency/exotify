@@ -25,6 +25,7 @@ const playfair = Playfair_Display({
 
 // Default metadata if not provided
 export const metadata = {
+  metadataBase: new URL("https://exotify.ca"),
   title: business.name,
   description: "A service based web development agency",
   icons: {
