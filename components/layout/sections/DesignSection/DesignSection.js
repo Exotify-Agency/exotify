@@ -25,8 +25,7 @@ const DesignSection = () => {
           src: "/assets/app/design/design-1.webp",
           alt: "renaissance style art painting",
           fill: true,
-          sizes:
-            "(max-width: 1000px) 65vw,(max-width: 800px) 74vw, (max-width: 600px) 100vw, 55vw",
+          sizes: "(max-width: 1000px) 90vw, (max-width: 600px) 100vw, 55vw",
         }}
       />
 

@@ -46,6 +46,7 @@ const Figure = forwardRef(
             src={imageProps.src}
             alt={imageProps.alt}
             style={{ objectFit: "cover", ...imageProps.style }}
+            quality={90}
             {...imageProps}
           />
 

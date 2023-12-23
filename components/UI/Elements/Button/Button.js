@@ -1,6 +1,7 @@
 import classes from "./Button.module.scss";
 import { forwardRef } from "react";
 import Link from "next/link";
+import { join } from "@/utils/helpers";
 
 const Button = forwardRef(
   (
@@ -25,13 +26,13 @@ const Button = forwardRef(
       otherProps.onBlur = otherProps.onMouseLeave;
 
     // Determine className
-    const buttonClassName = [
+    const buttonClassName = join(
       classes.Button,
       className ? className : null,
       buttonType ? classes["Button" + toCap(buttonType)] : null,
       isLoading ? classes.loading : null,
-      isActive ? activeClassName || classes.active : null,
-    ].join(" ");
+      isActive ? activeClassName || classes.active : null
+    );
 
     // Determine content
     let content;

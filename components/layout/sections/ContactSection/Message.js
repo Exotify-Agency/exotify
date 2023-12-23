@@ -165,7 +165,6 @@ const Message = ({ inView, instant }) => {
               data-sitekey={config.CAPTCHA_SITE_KEY}
               data-callback="onSubmit"
               data-action="submit"
-              isLoading
             >
               send message
               <i className="bi bi-send-fill" />

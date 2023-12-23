@@ -1,6 +1,6 @@
 import Button from "@/components/UI/Elements/Button/Button";
 import classes from "./PortfolioSection.module.scss";
-import Image from "@/components/UI/Elements/Image (legacy)";
+import Image from "@/components/UI/Elements/ImageLoader/ImageLoader";
 import Border from "@/components/UI/Styling/Border";
 import Animate from "@/components/UI/Animate/Animate";
 

@@ -3,6 +3,7 @@
 import classes from "./Header.module.scss";
 
 import Button from "@/components/UI/Elements/Button/Button";
+import ImageLoader from "@/components/UI/Elements/ImageLoader/ImageLoader";
 import Border from "@/components/UI/Styling/Border";
 import Animate from "@/components/UI/Animate/Animate";
 
@@ -31,6 +32,7 @@ const Header = (props) => {
           className={classes.HeaderBorderTop}
           isVisible={reveal}
           instant={instant}
+          innerProps={{ style: { position: "relative" } }}
         >
           <Image
             src="/assets/borders/border-1-top.svg"
@@ -46,6 +48,7 @@ const Header = (props) => {
           isVisible={reveal}
           direction="down"
           instant={instant}
+          innerProps={{ style: { position: "relative" } }}
         >
           <Image
             src="/assets/borders/border-1-bottom.svg"
@@ -64,30 +67,15 @@ const Header = (props) => {
           isVisible={reveal}
           instant={instant}
         >
-          <div className={classes.HeaderImageDesktop}>
-            <Image
-              src="/assets/app/header/header-1.webp"
-              alt="Monte Carlo pier"
-              ref={depthMain.ref}
-              sizes="(max-width: 800px) 95vw, (max-width: 300px) 100vw, 75vw"
-              style={{ objectFit: "cover", scale: "1.1" }}
-              loading="eager"
-              priority
-              fill
-            />
-          </div>
-          <div className={classes.HeaderImageMobile}>
-            <Image
-              src="/assets/app/header/header-1-mobile.webp"
-              alt="Monte Carlo pier"
-              ref={depthMain.ref}
-              sizes="(max-width: 800px) 95vw, (max-width: 300px) 100vw, 75vw"
-              style={{ objectFit: "cover", scale: "1.1" }}
-              loading="eager"
-              priority
-              fill
-            />
-          </div>
+          <ImageLoader // Custom loader that adheres to changing aspect ratio
+            ref={depthMain.ref}
+            src="/assets/app/header/header-1.webp"
+            alt="Monte Carlo pier"
+            // sizes="(max-width: 800px) 95vw, (max-width: 300px) 100vw, 75vw"
+            style={{ objectFit: "cover", scale: "1.1" }}
+            loading="eager"
+            priority
+          />
           <span className={classes.HeaderTint} />
         </Animate.ClipIn>
 

@@ -18,7 +18,7 @@ const SpeedSection = () => {
           src: "/assets/app/speed/speed-1.webp",
           alt: "red ferrari",
           sizes:
-            "(max-width: 1000px) 56vw, (max-width: 800px) 80vw, (max-width: 600px) 50vw, (max-width: 400px) 72vw, 50vw",
+            "(max-width: 1000px) 56vw, (max-width: 800px) 80vw, (max-width: 400px) 90vw, 50vw",
           fill: true,
         }}
         direction="down"

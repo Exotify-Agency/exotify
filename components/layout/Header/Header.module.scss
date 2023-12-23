@@ -66,20 +66,6 @@
 
     display: grid;
     grid-template-columns: 1fr;
-
-    &Desktop {
-      @include respond(600) {
-        display: none;
-      }
-    }
-
-    &Mobile {
-      display: none;
-
-      @include respond(600) {
-        display: block;
-      }
-    }
   }
 
   &Tint {
@@ -166,7 +152,7 @@
     right: calc(2 * var(--pd-limit-width));
     bottom: calc(2 * var(--pd-limit-width));
 
-    @include respond(400) {
+    @include respond(500) {
       right: unset;
       left: 50%;
       translate: -50% 0;
