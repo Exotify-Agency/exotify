@@ -14,38 +14,41 @@ const SpeedSection = () => {
     <Section name="speed" className={classes.SpeedSection} ref={ref}>
       <Figure
         className={classes.SpeedImage}
-        src="/assets/app/speed/speed-1.webp"
-        alt="red ferrari"
+        imageProps={{
+          src: "/assets/app/speed/speed-1.webp",
+          alt: "red ferrari",
+          sizes:
+            "(max-width: 1000px) 56vw, (max-width: 800px) 80vw, (max-width: 600px) 50vw, (max-width: 400px) 72vw, 50vw",
+          fill: true,
+        }}
         direction="down"
-        duration={1.75}
         isVisible={reveal}
         instant={instant}
+        transition={{ duration: 1.75 }}
       />
 
       <div className={classes.SpeedMain}>
         <Animate.ClipIn
           className={classes.SpeedShape}
           direction="left"
-          duration={1.25}
-          delay={0.25}
           isVisible={reveal}
           instant={instant}
+          transition={{ duration: 1.25, delay: 0.25 }}
         />
         <div className={classes.SpeedContent}>
           <Animate.SlideIn
             direction="up"
-            delay={0.75}
             isVisible={reveal}
             instant={instant}
+            transition={{ delay: 0.75 }}
           >
             <h2 className="header header-2">Built for speed</h2>
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1.1}
-            duration={1.75}
             isVisible={reveal}
             instant={instant}
+            transition={{ duration: 1.75, delay: 1.1 }}
           >
             <p className="paragraph">
               We engineer our websites with the user in mind. This means

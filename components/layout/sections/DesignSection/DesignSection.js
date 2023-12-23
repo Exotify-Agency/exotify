@@ -16,39 +16,42 @@ const DesignSection = () => {
     <Section className={classes.DesignSection} name="design" ref={ref}>
       <Figure
         className={classes.DesignImage}
-        src="/assets/app/design/design-1.webp"
-        alt="renaissance style art painting"
         direction="left"
-        duration={1.5}
+        transition={{ duration: 1.5 }}
         isVisible={reveal}
         instant={instant}
         tint={windowSize < 600 ? true : null}
+        imageProps={{
+          src: "/assets/app/design/design-1.webp",
+          alt: "renaissance style art painting",
+          fill: true,
+          sizes:
+            "(max-width: 1000px) 65vw,(max-width: 800px) 74vw, (max-width: 600px) 100vw, 55vw",
+        }}
       />
 
       <div className={classes.DesignMain}>
         <Animate.ClipIn
           className={classes.DesignShape}
           direction="right"
-          duration={1.5}
-          delay={0.25}
           isVisible={reveal}
           instant={instant}
+          transition={{ duration: 1.5, delay: 0.25 }}
         />
         <div className={classes.DesignContent}>
           <Animate.SlideIn
             direction="up"
-            delay={0.75}
             isVisible={reveal}
             instant={instant}
+            transition={{ delay: 0.75 }}
           >
             <h2 className="header header-2">Customized to perfection</h2>
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1}
-            duration={1.5}
             isVisible={reveal}
             instant={instant}
+            transition={{ duration: 1.5, delay: 1 }}
           >
             <p className="paragraph">
               Your website is tailored with your goals in mind. You need
@@ -58,10 +61,9 @@ const DesignSection = () => {
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1.25}
-            duration={1.5}
             isVisible={reveal}
             instant={instant}
+            transition={{ duration: 1.5, delay: 1.25 }}
           >
             <p className="paragraph">
               Having a website design that looks professional is crucial for

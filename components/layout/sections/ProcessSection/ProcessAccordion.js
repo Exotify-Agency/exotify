@@ -48,11 +48,11 @@ const ProcessAccordion = () => {
           <ProcessStage
             key={i}
             index={i}
-            duration={duration}
             onClick={onClickHandler.bind(null, i)}
             stage={stage}
             isActive={i === activeStage}
             isDisabled={isDisabled}
+            transition={{ duration }}
           />
         ))}
       </div>

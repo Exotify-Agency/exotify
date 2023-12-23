@@ -1,60 +1,54 @@
 import classes from "./Figure.module.scss";
 
-import Border from "../../Styling/Border";
+// import Border from "../../Styling/Border";
 import Animate from "../../Animate/Animate";
 import { forwardRef } from "react";
-import Image from "../Image";
+import Image from "next/image";
 import { useDepth } from "@/hooks/useDepth";
+import { join } from "@/utils/helpers";
 
 const Figure = forwardRef(
   (
     {
       className,
-      caption,
-      src,
-      alt,
       isVisible = true,
       direction = "down",
-      duration = 1,
-      delay = 0,
+      transition,
       instant,
       includeBorder = false,
-      padding = "var(--pd-limit-width)",
       parallaxSpeed = -10,
       tint = false,
-      noSrcSet = false,
+      imageProps = {},
+
       ...otherProps
     },
     ref
   ) => {
     const depth = useDepth(parallaxSpeed);
 
-    let figureClassName = [
+    const figureClassName = join(
       classes.Figure,
       className ? className : null,
-      parallaxSpeed !== 0 ? classes.hasParallax : null,
-    ];
-    figureClassName = figureClassName.join(" ").trim();
+      parallaxSpeed !== 0 ? classes.hasParallax : null
+    );
 
     return (
       <figure className={figureClassName} ref={ref} {...otherProps}>
-        {/* IMAGE */}
         <Animate.ClipIn
           className={classes.FigureImage}
           isVisible={isVisible}
-          direction={direction}
-          delay={delay}
-          duration={duration}
           instant={instant}
+          direction={direction}
+          transition={transition}
         >
           <Image
-            src={src}
-            alt={alt}
-            width={otherProps.width}
-            height={otherProps.height}
             ref={depth.ref}
-            noSrcSet={noSrcSet}
+            src={imageProps.src}
+            alt={imageProps.alt}
+            style={{ objectFit: "cover", ...imageProps.style }}
+            {...imageProps}
           />
+
           {tint && <span className={classes.FigureOverlay} />}
         </Animate.ClipIn>
       </figure>

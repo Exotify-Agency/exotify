@@ -1,0 +1,9 @@
+.Form {
+  display: grid;
+  gap: var(--pd-limit-width);
+
+  &Row {
+    display: grid;
+    grid-column: 1 / -1;
+  }
+}

@@ -7,7 +7,7 @@ import Border from "@/components/UI/Styling/Border";
 import Animate from "@/components/UI/Animate/Animate";
 
 import business from "@/data/business.json";
-import Image from "@/components/UI/Elements/Image";
+import Image from "next/image";
 import { useDepth } from "@/hooks/useDepth";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -32,7 +32,14 @@ const Header = (props) => {
           isVisible={reveal}
           instant={instant}
         >
-          <img src="/assets/borders/border-1-top.svg" alt="Border graphic" />
+          <Image
+            src="/assets/borders/border-1-top.svg"
+            alt="Border graphic"
+            style={{ objectFit: "contain" }}
+            loading="eager"
+            priority
+            fill
+          />
         </Animate.SlideIn>
         <Animate.SlideIn
           className={classes.HeaderBorderBottom}
@@ -40,7 +47,14 @@ const Header = (props) => {
           direction="down"
           instant={instant}
         >
-          <img src="/assets/borders/border-1-bottom.svg" alt="Border graphic" />
+          <Image
+            src="/assets/borders/border-1-bottom.svg"
+            alt="Border graphic"
+            style={{ objectFit: "contain" }}
+            loading="eager"
+            priority
+            fill
+          />
         </Animate.SlideIn>
 
         {/* BACKGROUND */}
@@ -50,33 +64,55 @@ const Header = (props) => {
           isVisible={reveal}
           instant={instant}
         >
-          <Image
-            src="/assets/app/header/header-1.webp"
-            alt="Monte Carlo pier"
-            priority
-            ref={depthMain.ref}
-          />
+          <div className={classes.HeaderImageDesktop}>
+            <Image
+              src="/assets/app/header/header-1.webp"
+              alt="Monte Carlo pier"
+              ref={depthMain.ref}
+              sizes="(max-width: 800px) 95vw, (max-width: 300px) 100vw, 75vw"
+              style={{ objectFit: "cover", scale: "1.1" }}
+              loading="eager"
+              priority
+              fill
+            />
+          </div>
+          <div className={classes.HeaderImageMobile}>
+            <Image
+              src="/assets/app/header/header-1-mobile.webp"
+              alt="Monte Carlo pier"
+              ref={depthMain.ref}
+              sizes="(max-width: 800px) 95vw, (max-width: 300px) 100vw, 75vw"
+              style={{ objectFit: "cover", scale: "1.1" }}
+              loading="eager"
+              priority
+              fill
+            />
+          </div>
           <span className={classes.HeaderTint} />
         </Animate.ClipIn>
 
         {/* TITLEBAR */}
         <Animate.ClipIn
           className={classes.HeaderTitlebar}
-          delay={0.75}
           isVisible={reveal}
-          direction="right"
-          ref={depthTitle.ref}
           instant={instant}
+          direction="right"
+          transition={{ delay: 0.75, ease: "easeInOut" }}
+          ref={depthTitle.ref}
         >
           <span className={classes.HeaderShape} />
-          <Animate.SlideIn isVisible={reveal} delay={1.35} instant={instant}>
+          <Animate.SlideIn
+            isVisible={reveal}
+            instant={instant}
+            transition={{ delay: 1.35 }}
+          >
             <h1 className="header header-1">{business.name}</h1>
           </Animate.SlideIn>
           <Animate.SlideIn
             isVisible={reveal}
-            delay={1.35}
-            direction="down"
             instant={instant}
+            direction="down"
+            transition={{ delay: 1.35 }}
           >
             <p className="subtitle">
               A web design and digital marketing agency
@@ -97,7 +133,7 @@ const Header = (props) => {
         {/* BUTTON */}
         <Animate.SlideIn
           className={classes.HeaderCta}
-          delay={1.5}
+          transition={{ delay: 1.5 }}
           isVisible={reveal}
           instant={instant}
         >

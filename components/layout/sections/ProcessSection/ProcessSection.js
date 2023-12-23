@@ -17,15 +17,15 @@ const ProcessSection = () => {
       <Animate.ClipIn
         className={classes.ProcessTitlebar}
         isVisible={reveal}
-        delay={0.5}
         direction="left"
         instant={instant || windowSize <= 700}
+        transition={{ delay: 0.5 }}
       >
         <Animate.SlideIn
           isVisible={reveal}
-          delay={windowSize <= 700 ? 0 : 1}
           direction="up"
           instant={instant}
+          transition={{ delay: windowSize <= 700 ? 0 : 1 }}
         >
           <h2 className="header header-2">Development process</h2>
         </Animate.SlideIn>
@@ -33,9 +33,8 @@ const ProcessSection = () => {
       <Animate.ClipIn
         isVisible={reveal}
         direction="right"
-        duration={1.5}
-        delay={windowSize <= 700 ? 0.5 : 0}
         instant={instant}
+        transition={{ duration: 1.5, delay: windowSize <= 700 ? 0.5 : 0 }}
       >
         <ProcessAccordion />
       </Animate.ClipIn>

@@ -28,6 +28,17 @@
     font-weight: 300;
   }
 
+  & .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1em;
+    width: 5rem;
+    display: block;
+    content: "loading";
+  }
+
   // STATES
   &:disabled,
   &.disabled {

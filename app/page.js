@@ -23,7 +23,7 @@ export default function Home() {
     <Fragment>
       <Header />
       <AboutSection />
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
 
       {/* FEATURES */}
       <DesignSection />

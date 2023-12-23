@@ -3,15 +3,8 @@
 import classes from "./Section.module.scss";
 
 import { forwardRef } from "react";
-import { styled } from "styled-components";
 
 import Button from "@/components/UI/Elements/Button/Button";
-
-const StyledSection = styled.section`
-  max-width: ${(props) => props.$limit};
-  width: 100%;
-  margin: 0 auto;
-`;
 
 const Section = forwardRef(
   (
@@ -30,11 +23,11 @@ const Section = forwardRef(
     const sectionName = "section-" + name;
     const sectionLimit = limitWidth ? limit : "none";
     return (
-      <StyledSection
+      <section
         className={sectionClassName}
         id={sectionName}
         ref={ref}
-        $limit={sectionLimit}
+        style={{ maxWidth: sectionLimit }}
         {...otherProps}
       >
         {includeBack && (
@@ -44,7 +37,7 @@ const Section = forwardRef(
           </Button>
         )}
         {children}
-      </StyledSection>
+      </section>
     );
   }
 );

@@ -12,10 +12,10 @@ const Alternatives = () => {
 
   return (
     <Animate.SlideIn
+      ref={ref}
       className={classes.AlternativesWrapper}
       direction="down"
       isVisible={inView}
-      ref={ref}
     >
       <div className={classes.Alternatives}>
         {/* <div className={classes.Alternative}>

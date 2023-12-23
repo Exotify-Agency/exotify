@@ -1,23 +1,8 @@
 "use client";
 
-import { forwardRef } from "react";
-import { styled } from "styled-components";
+import React, { forwardRef } from "react";
 
-const Container = styled.div`
-  overflow: hidden;
-  & > * {
-    will-change: translate;
-    transition: translate ${({ data }) => data.duration}s
-      ${({ data }) => data.delay}s;
-    translate: ${({ data }) => {
-      if (data.isVisible) return "0 0";
-      if (data.direction === "up") return "0 110%";
-      if (data.direction === "down") return "0 -110%";
-      if (data.direction === "left") return "110% 0";
-      if (data.direction === "right") return "-110% 0";
-    }};
-  }
-`;
+import { motion } from "framer-motion";
 
 const SlideIn = forwardRef(
   (
@@ -25,32 +10,54 @@ const SlideIn = forwardRef(
       children,
       isVisible = true,
       direction = "up",
-      duration = 1,
-      delay = 0,
+      transition = {
+        duration: 1,
+        delay: 0,
+      },
       instant,
+      innerProps,
       ...otherProps
     },
     ref
   ) => {
-    if (instant) {
-      delay = 0;
-      duration = 0;
-    }
-
-    const data = {
-      isVisible,
-      direction,
-      duration,
-      delay,
+    transition = {
+      duration: transition.duration || 1,
+      delay: transition.delay || 0,
+      ease: transition.ease || "easeInOut",
     };
 
-    if (children?.constructor === Array)
-      throw Error("Slide in can only have one child component!");
+    if (instant) {
+      transition.delay = 0;
+      transition.duration = 0;
+    }
+
+    // Determine animation direction
+    let initialPosition;
+    if (direction === "up") {
+      initialPosition = "0% 105%";
+    } else if (direction === "down") {
+      initialPosition = "0% -105%";
+    } else if (direction === "left") {
+      initialPosition = "105% 0%";
+    } else if (direction === "right") {
+      initialPosition = "-105% 0%";
+    }
 
     return (
-      <Container ref={ref} data={data} {...otherProps}>
-        {children}
-      </Container>
+      <div
+        ref={ref}
+        style={{ ...otherProps.style, overflow: "hidden" }}
+        {...otherProps}
+      >
+        <motion.div
+          initial={{ translate: initialPosition }}
+          animate={isVisible ? { translate: "0% 0%" } : false}
+          transition={transition}
+          {...innerProps}
+        >
+          {children}
+        </motion.div>
+      </div>
     );
   }
 );

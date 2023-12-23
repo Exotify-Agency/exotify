@@ -7,7 +7,7 @@ const ProcessStage = ({
   isActive,
   isDisabled,
   index,
-  duration,
+  transition,
   onClick: onClickHandler,
 }) => {
   const className = [
@@ -21,15 +21,20 @@ const ProcessStage = ({
       className={className}
       onClick={onClickHandler}
       onFocus={onClickHandler}
-      style={{ transition: `flex ${duration}s` }}
+      style={{ transition: `flex ${transition.duration}s` }}
       tabIndex="0"
     >
       <Figure
         className={classes.StageBackground}
-        src={stage.image}
-        alt={stage.title + " stage"}
         style={{
-          transition: `scale ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
+          transition: `scale ${transition.duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
+        }}
+        instant
+        imageProps={{
+          src: stage.image,
+          alt: stage.title + " stage",
+          sizes: "(max-width: 700px) 90vw, 80vw",
+          fill: true,
         }}
       />
 
@@ -38,9 +43,9 @@ const ProcessStage = ({
         className={classes.StageContent}
         style={{
           transition: `
-            max-width ${duration}s,
-            max-height ${duration}s,
-            height ${duration}s
+            max-width ${transition.duration}s,
+            max-height ${transition.duration}s,
+            height ${transition.duration}s
           `,
         }}
       >

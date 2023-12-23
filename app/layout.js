@@ -1,7 +1,6 @@
 import "@/sass/globals.scss";
 
 import { Roboto, Playfair_Display } from "next/font/google";
-import StyledComponentsRegistry from "./registry";
 
 import business from "@/data/business.json";
 
@@ -50,13 +49,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={[roboto.variable, playfair.variable].join(" ")}>
       <body>
-        <StyledComponentsRegistry>
-          <Providers>
-            <Nav />
-            <main className="main">{children}</main>
-            <Footer />
-          </Providers>
-        </StyledComponentsRegistry>
+        <Providers>
+          <Nav />
+          <main className="main">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

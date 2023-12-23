@@ -1,13 +1,6 @@
-"use client";
-
 import { forwardRef } from "react";
 
 import classes from "./Input.module.scss";
-import { styled } from "styled-components";
-
-const Error = styled.div``;
-
-const ErrorInner = styled.div``;
 
 const Input = forwardRef(
   (
@@ -52,9 +45,9 @@ const Input = forwardRef(
       <div className={className}>
         {inputElement}
         <label htmlFor={"input-" + name}>{placeholder}</label>
-        <Error>
-          <ErrorInner></ErrorInner>
-        </Error>
+        <div className={classes.Error}>
+          <div className={classes.ErrorInner}></div>
+        </div>
       </div>
     );
   }

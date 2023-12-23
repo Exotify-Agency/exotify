@@ -19,28 +19,31 @@ const AboutSection = () => {
           className={classes.AboutShape}
           isVisible={reveal}
           direction="right"
-          duration={1.25}
+          transition={{ duration: 1.25 }}
           instant={instant}
         />
         <Animate.ClipIn
           className={classes.AboutImageWrapper}
           isVisible={reveal}
           direction="down"
-          duration={1.25}
-          delay={0.75}
+          transition={{ duration: 1.25, delay: 0.75 }}
           instant={instant}
         >
           <Figure
             className={classes.AboutImage}
-            src="/assets/app/about/about-1.webp"
-            alt="Image of car beside cartier store"
             tint
+            imageProps={{
+              src: "/assets/app/about/about-1.webp",
+              alt: "Image of car beside cartier store",
+              sizes: "(max-width: 800px) 45vw, (max-width: 400px) 80vw, 33vw",
+              fill: true,
+            }}
           />
         </Animate.ClipIn>
         <div className={classes.AboutContent}>
           <Animate.SlideIn
             direction="up"
-            delay={0.75}
+            transition={{ delay: 0.75 }}
             isVisible={reveal}
             instant={instant}
           >
@@ -48,8 +51,7 @@ const AboutSection = () => {
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1}
-            duration={1.5}
+            transition={{ duration: 1.5, delay: 1 }}
             isVisible={reveal}
             instant={instant}
           >
@@ -63,8 +65,7 @@ const AboutSection = () => {
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1.25}
-            duration={1.5}
+            transition={{ duration: 1.5, delay: 1.25 }}
             isVisible={reveal}
             instant={instant}
           >

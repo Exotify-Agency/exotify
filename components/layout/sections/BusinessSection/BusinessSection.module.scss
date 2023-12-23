@@ -110,6 +110,11 @@ section.BusinessSection {
       &--2 {
         margin-top: -$vertical-spacing;
         margin-bottom: -$vertical-spacing;
+        display: grid;
+
+        & > * {
+          display: grid;
+        }
 
         @include respond(800) {
           margin-top: 20rem;

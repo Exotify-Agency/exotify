@@ -7,10 +7,10 @@ import axios from "axios";
 import { useCaptcha } from "@/hooks/useCaptcha";
 import useInput from "@/hooks/useInput";
 
-import Form from "@/components/UI/Elements/Form";
+import Form from "@/components/UI/Elements/Form/Form";
 import Input from "@/components/UI/Elements/Input/Input";
 import Button from "@/components/UI/Elements/Button/Button";
-import TitleBar from "@/components/UI/Elements/TitleBar";
+import Titlebar from "@/components/UI/Elements/Titlebar/Titlebar";
 import Border from "@/components/UI/Styling/Border";
 import Figure from "@/components/UI/Elements/Figure/Figure";
 import Animate from "@/components/UI/Animate/Animate";
@@ -64,53 +64,57 @@ const Message = ({ inView, instant }) => {
     <Animate.ClipIn
       className={classes.MessageWrapper}
       direction="right"
-      duration={1.75}
       isVisible={windowSize <= 400 ? true : inView}
       instant={instant}
+      transition={{ duration: 1.75 }}
     >
       <Border
         className={classes.Message}
         padding="2rem"
         borderStyle="double"
-        delay={0.5}
-        duration={2}
         isVisible={inView}
         instant={instant}
+        transition={{ duration: 2, delay: 0.5 }}
       >
         {/* BACKGROUND */}
         <Figure
           className={classes.MessageBackground}
-          src="/assets/app/message/message-1.webp"
-          alt="Luxurious hotel lobby"
+          instant
+          imageProps={{
+            src: "/assets/app/message/message-1.webp",
+            alt: "Luxurious hotel lobby",
+            sizes: "(max-width: 400px) 100vw, 90vw",
+            fill: true,
+          }}
         />
 
         {/* TITLEBAR */}
         <Animate.ClipIn
           className={classes.MessageTitlebarWrapper}
           direction="right"
-          delay={0.5}
           isVisible={inView}
           instant={instant}
+          transition={{ delay: 0.5 }}
         >
-          <TitleBar className={classes.MessageTitlebar}>
+          <Titlebar className={classes.MessageTitlebar}>
             <Animate.SlideIn
               direction="up"
-              delay={1}
               isVisible={inView}
               instant={instant}
+              transition={{ delay: 1 }}
             >
               <h2 className="header header-2 text-center">message us</h2>
             </Animate.SlideIn>
-          </TitleBar>
+          </Titlebar>
         </Animate.ClipIn>
 
         {/* FORM */}
         <Form onSubmit={onSubmitHandler} onFocus={focusHandler}>
           <Animate.SlideIn
             direction="right"
-            delay={0.5}
             isVisible={inView}
             instant={instant}
+            transition={{ delay: 0.5 }}
           >
             <Input
               placeholder="full name"
@@ -121,9 +125,9 @@ const Message = ({ inView, instant }) => {
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={0.75}
             isVisible={inView}
             instant={instant}
+            transition={{ delay: 0.75 }}
           >
             <Input
               placeholder="email"
@@ -134,9 +138,9 @@ const Message = ({ inView, instant }) => {
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={1}
             isVisible={inView}
             instant={instant}
+            transition={{ delay: 1 }}
           >
             <Input
               placeholder="message"
@@ -150,9 +154,9 @@ const Message = ({ inView, instant }) => {
           <Animate.SlideIn
             className={classes.MessageButtonWrapper}
             direction="right"
-            delay={1.25}
             isVisible={inView}
             instant={instant}
+            transition={{ delay: 1.25 }}
           >
             <Button
               buttonType="shine"
@@ -161,6 +165,7 @@ const Message = ({ inView, instant }) => {
               data-sitekey={config.CAPTCHA_SITE_KEY}
               data-callback="onSubmit"
               data-action="submit"
+              isLoading
             >
               send message
               <i className="bi bi-send-fill" />

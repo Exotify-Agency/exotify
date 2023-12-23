@@ -49,15 +49,15 @@ const BusinessSection = () => {
           className={classes.BusinessShape}
           direction="left"
           isVisible={reveal}
-          duration={0.75}
           instant={instant}
+          transition={{ duration: 0.75 }}
         />
         <Animate.SlideIn
           className={classes.BusinessTitle}
           direction="up"
-          delay={0.5}
           isVisible={reveal}
           instant={instant}
+          transition={{ delay: 0.5 }}
         >
           <h2 className="header header-2">Enhanced business tools</h2>
         </Animate.SlideIn>

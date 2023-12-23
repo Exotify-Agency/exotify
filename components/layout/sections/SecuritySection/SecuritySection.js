@@ -15,30 +15,35 @@ const SecuritySection = () => {
       <Animate.ClipIn
         className={classes.SecurityContainer}
         direction="right"
-        duration={1.75}
         isVisible={reveal}
         instant={instant}
+        transition={{ duration: 1.75 }}
       >
         <Figure
-          src="/assets/app/security/security-1.webp"
           className={classes.SecurityImage}
-          alt="an inpenetrable castle"
           tint
+          instant
+          imageProps={{
+            src: "/assets/app/security/security-1.webp",
+            alt: "an inpenetrable castle",
+            sizes:
+              "(max-width: 1000px) 86vw, (max-width:(max-width: 500px) 100vw, 70vw",
+            fill: true,
+          }}
         />
         <div className={classes.SecurityContent}>
           <Animate.SlideIn
             direction="up"
-            delay={0.25}
             isVisible={reveal}
             instant={instant}
+            transition={{ delay: 0.25 }}
           >
             <h2 className="header header-2">Inpenetrable security</h2>
           </Animate.SlideIn>
           <Animate.SlideIn
             direction="right"
-            delay={0.5}
-            duration={1.75}
             isVisible={reveal}
+            transition={{ duration: 1.75, delay: 0.5 }}
           >
             <p className="paragraph">
               Your websites is built like a strong castle. We utilize the most

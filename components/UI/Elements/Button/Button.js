@@ -1,20 +1,6 @@
-"use client";
-
 import classes from "./Button.module.scss";
-import styled from "styled-components";
-import { Fragment, forwardRef } from "react";
+import { forwardRef } from "react";
 import Link from "next/link";
-
-const Loader = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 1em;
-  width: 5rem;
-  background: blue;
-  display: block;
-`;
 
 const Button = forwardRef(
   (
@@ -81,7 +67,7 @@ const Button = forwardRef(
       >
         {content}
         {children && <span className={classes.children}>{children}</span>}
-        {isLoading && <Loader className={classes.loader} />}
+        {isLoading && <span className={classes.loader} />}
       </Tag>
     );
   }

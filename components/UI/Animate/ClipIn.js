@@ -1,24 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
-import styled from "styled-components";
-
-const Container = styled.div`
-  will-change: clip-path;
-  transition: clip-path ${({ data }) => data.duration}s
-    ${({ data }) => data.delay}s;
-  clip-path: ${({ data }) => {
-    if (data.isVisible) return "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)";
-    if (data.direction === "up")
-      return "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-    if (data.direction === "down")
-      return "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
-    if (data.direction === "left")
-      return "polygon(100% 0%, 100% 0, 100% 100%, 100% 100%)";
-    if (data.direction === "right")
-      return "polygon(0% 0%, 0% 0, 0% 100%, 0% 100%)";
-  }};
-`;
+import { motion } from "framer-motion";
 
 const ClipIn = forwardRef(
   (
@@ -26,29 +9,52 @@ const ClipIn = forwardRef(
       children,
       isVisible = true,
       direction = "up",
-      duration = 1,
-      delay = 0,
+      transition = {
+        duration: 1,
+        delay: 0,
+      },
       instant,
       ...otherProps
     },
     ref
   ) => {
-    if (instant) {
-      delay = 0;
-      duration = 0;
-    }
-
-    const data = {
-      isVisible: isVisible,
-      direction: direction,
-      duration: duration,
-      delay: delay,
+    transition = {
+      duration: transition.duration || 1,
+      delay: transition.delay || 0,
+      ease: transition.ease || "easeInOut",
     };
 
+    if (instant) {
+      transition.delay = 0;
+      transition.duration = 0;
+    }
+
+    // Determine animation direction
+    let initialClip, finalClip;
+    if (direction === "right") {
+      initialClip = "polygon(0 0, 0 0, 0 100%, 0 100%)";
+      finalClip = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    } else if (direction === "left") {
+      initialClip = "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)";
+      finalClip = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    } else if (direction === "up") {
+      initialClip = "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)";
+      finalClip = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    } else if (direction === "down") {
+      initialClip = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+      finalClip = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";
+    }
+
     return (
-      <Container data={data} {...otherProps} ref={ref}>
+      <motion.div
+        initial={{ clipPath: initialClip }}
+        animate={isVisible ? { clipPath: finalClip } : false}
+        transition={transition}
+        ref={ref}
+        {...otherProps}
+      >
         {children}
-      </Container>
+      </motion.div>
     );
   }
 );

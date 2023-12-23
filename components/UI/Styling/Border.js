@@ -1,110 +1,189 @@
 "use client";
 
+import classes from "./Border.module.scss";
 import React, { forwardRef } from "react";
+
+import { motion } from "framer-motion";
 
 const Border = forwardRef(
   (
     {
-      children,
       isVisible = true,
-      padding = "var(--pd-limit-width)",
-      paddingTop,
-      paddingLeft,
-      borderStyle = "solid",
-      duration = 1,
-      delay = 0,
       instant,
+      padding = "var(--pd-limit-width)",
+      borderStyle = "solid",
+      transition = { duration: 1, delay: 0 },
+      children,
       ...otherProps
     },
     ref
   ) => {
-    if (instant) {
-      duration = 0;
-      delay = 0;
-    }
-
     const thickness = "1px";
 
-    const containerStyles = { position: "relative" };
-    const sharedBorderStyles = {
-      position: "absolute",
-      backgroundColor: "var(--bd-gold)",
-      transition: `width ${duration}s ${delay}s, height ${duration}s ${delay}s`,
-    };
+    if (instant) {
+      transition.duration = 0;
+      transition.delay = 0;
+    }
 
-    const borderTopStyles = {
-      ...sharedBorderStyles,
+    let paddingTop, paddingLeft;
+    const paddingSplit = padding.split(" ");
+    if (paddingSplit.length === 2) {
+      paddingTop = paddingSplit[0];
+      paddingLeft = paddingSplit[1];
+    } else {
+      paddingTop = padding;
+      paddingLeft = padding;
+    }
+
+    const commonStyles = { position: "absolute", background: "var(--bd-gold)" };
+
+    // MAIN BORDER
+    const stylesTop = {
+      ...commonStyles,
       height: thickness,
-      width: isVisible ? `calc(100% - 2 * ${paddingLeft || padding})` : 0,
-      top: paddingTop || padding,
+      top: paddingTop,
       left: "50%",
       translate: "-50% 0",
     };
-    const doubleBorderTopStyles = {
-      ...borderTopStyles,
-      width: isVisible ? `calc(${borderTopStyles.width} - 4px)` : 0,
-      top: `calc(${borderTopStyles.top} + 0.2rem)`,
-    };
+    const initialTop = { width: 0 };
+    const finalTop = { width: `calc(100% - 2 * ${paddingLeft})` };
 
-    const borderRightStyles = {
-      ...sharedBorderStyles,
-      width: thickness,
-      height: isVisible ? `calc(100% - 2 * ${paddingTop || padding})` : 0,
-      top: "50%",
-      right: paddingLeft || padding,
-      translate: "0 -50%",
-    };
-    const doubleBorderRightStyles = {
-      ...borderRightStyles,
-      height: isVisible ? `calc(${borderRightStyles.height} - 4px)` : 0,
-      right: `calc(${borderRightStyles.right} + 0.2rem)`,
-    };
-
-    const borderBottomStyles = {
-      ...sharedBorderStyles,
+    const stylesBottom = {
+      ...commonStyles,
       height: thickness,
-      width: isVisible ? `calc(100% - 2 * ${paddingLeft || padding})` : 0,
-      bottom: paddingTop || padding,
+      bottom: paddingTop,
       left: "50%",
       translate: "-50% 0",
     };
-    const doubleBorderBottomStyles = {
-      ...borderBottomStyles,
-      width: isVisible ? `calc(${borderBottomStyles.width} - 4px)` : 0,
-      bottom: `calc(${borderBottomStyles.bottom} + 0.2rem)`,
-    };
+    const initialBottom = { width: 0 };
+    const finalBottom = { width: `calc(100% - 2 * ${paddingLeft})` };
 
-    const borderLeftStyles = {
-      ...sharedBorderStyles,
+    const stylesLeft = {
+      ...commonStyles,
       width: thickness,
-      height: isVisible ? `calc(100% - 2 * ${paddingTop || padding})` : 0,
+      left: paddingLeft,
       top: "50%",
-      left: paddingLeft || padding,
       translate: "0 -50%",
     };
-    const doubleBorderLeftStyles = {
-      ...borderLeftStyles,
-      height: isVisible ? `calc(${borderLeftStyles.height} - 4px)` : 0,
-      left: `calc(${borderLeftStyles.left} + 0.2rem)`,
+    const initialLeft = { height: 0 };
+    const finalLeft = { height: `calc(100% - 2 * ${paddingTop})` };
+
+    const stylesRight = {
+      ...commonStyles,
+      width: thickness,
+      right: paddingLeft,
+      top: "50%",
+      translate: "0 -50%",
+    };
+    const initialRight = { height: 0 };
+    const finalRight = { height: `calc(100% - 2 * ${paddingTop})` };
+
+    // DOUBLE BORDER
+    const stylesTopDouble = {
+      ...commonStyles,
+      height: thickness,
+      top: `calc(${paddingTop} + 2 * ${thickness})`,
+      left: "50%",
+      translate: "-50% 0",
+    };
+    const initialTopDouble = { width: 0 };
+    const finalTopDouble = {
+      width: `calc(100% - 2 * ${paddingLeft} - 4 * ${thickness})`,
+    };
+
+    const stylesBottomDouble = {
+      ...commonStyles,
+      height: thickness,
+      bottom: `calc(${paddingTop} + 2 * ${thickness})`,
+      left: "50%",
+      translate: "-50% 0",
+    };
+    const initialBottomDouble = { width: 0 };
+    const finalBottomDouble = {
+      width: `calc(100% - 2 * ${paddingLeft} - 4 * ${thickness})`,
+    };
+
+    const stylesLeftDouble = {
+      ...commonStyles,
+      width: thickness,
+      left: `calc(${paddingTop} + 2 * ${thickness})`,
+      top: "50%",
+      translate: "0 -50%",
+    };
+    const initialLeftDouble = { height: 0 };
+    const finalLeftDouble = {
+      height: `calc(100% - 2 * ${paddingTop} - 4 * ${thickness})`,
+    };
+
+    const stylesRightDouble = {
+      ...commonStyles,
+      width: thickness,
+      right: `calc(${paddingTop} + 2 * ${thickness})`,
+      top: "50%",
+      translate: "0 -50%",
+    };
+    const initialRightDouble = { height: 0 };
+    const finalRightDouble = {
+      height: `calc(100% - 2 * ${paddingTop} - 4 * ${thickness})`,
     };
 
     return (
-      <div style={containerStyles} {...otherProps} ref={ref}>
+      <div className={classes.Border} {...otherProps} ref={ref}>
         {children}
 
         {/* MAIN BORDER */}
-        <span style={borderTopStyles} />
-        <span style={borderRightStyles} />
-        <span style={borderBottomStyles} />
-        <span style={borderLeftStyles} />
+        <motion.span
+          style={stylesTop}
+          transition={transition}
+          initial={initialTop}
+          animate={finalTop}
+        />
+        <motion.span
+          style={stylesBottom}
+          transition={transition}
+          initial={initialBottom}
+          animate={finalBottom}
+        />
+        <motion.span
+          style={stylesLeft}
+          transition={transition}
+          initial={initialLeft}
+          animate={finalLeft}
+        />
+        <motion.span
+          style={stylesRight}
+          transition={transition}
+          initial={initialRight}
+          animate={finalRight}
+        />
 
         {/* BORDER DOUBLE */}
         {borderStyle === "double" && (
           <>
-            <span style={doubleBorderTopStyles} />
-            <span style={doubleBorderRightStyles} />
-            <span style={doubleBorderBottomStyles} />
-            <span style={doubleBorderLeftStyles} />
+            <motion.span
+              style={stylesTopDouble}
+              transition={transition}
+              initial={initialTopDouble}
+              animate={finalTopDouble}
+            />
+            <motion.span
+              style={stylesBottomDouble}
+              transition={transition}
+              initial={initialBottomDouble}
+              animate={finalBottomDouble}
+            />
+            <motion.span
+              style={stylesLeftDouble}
+              transition={transition}
+              initial={initialLeftDouble}
+              animate={finalLeftDouble}
+            />
+            <motion.span
+              style={stylesRightDouble}
+              transition={transition}
+              initial={initialRightDouble}
+              animate={finalRightDouble}
+            />
           </>
         )}
       </div>
