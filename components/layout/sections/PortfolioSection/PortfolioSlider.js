@@ -11,7 +11,7 @@ const dataSlides = [
     summary: "Real estate firm",
     image: "/assets/app/portfolio/nexter.webp",
     description:
-      "A luxurious website that cuts straight to the point. It features an interactive home listing grid layout that highlights the key parts of any home.",
+      "A luxurious website that cuts straight to the point. It features an interactive home listing grid layout that highlights the key parts of any home. Designed by Jonas Schmedtmann.",
     link: "https://nexter.netlify.app/",
   },
   {
@@ -19,7 +19,7 @@ const dataSlides = [
     summary: "Vacation rating website",
     image: "/assets/app/portfolio/trillo.webp",
     description:
-      "Rate vacations that you've went to, as well as look at other vacations. You can see every metric needed in order to make an informed decision on your getaway!",
+      "Rate vacations that you've went to, as well as look at other vacations. You can see every metric needed in order to make an informed decision on your getaway! Designed by Jonas Schmedtmann.",
     link: "https://trillo.netlify.app/",
   },
   {
@@ -51,7 +51,7 @@ const dataSlides = [
     summary: "Tour booking app",
     image: "/assets/app/portfolio/natours.webp",
     description:
-      "A website that books fake tours. It has email, payments, database and userbase functionality.",
+      "A website that books fake tours. It has email, payments, database and userbase functionality.  Designed by Jonas Schmedtmann.",
     link: "https://natours.netlify.app/",
   },
 
