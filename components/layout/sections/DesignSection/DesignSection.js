@@ -22,7 +22,7 @@ const DesignSection = () => {
         instant={instant}
         tint={windowSize < 600 ? true : null}
         imageProps={{
-          src: "/assets/app/design/design-1.webp",
+          src: "/assets/app/design-1.webp",
           alt: "renaissance style art painting",
           fill: true,
           sizes: "(max-width: 1000px) 90vw, (max-width: 600px) 100vw, 55vw",

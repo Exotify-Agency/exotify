@@ -81,7 +81,7 @@ const Message = ({ inView, instant }) => {
           className={classes.MessageBackground}
           instant
           imageProps={{
-            src: "/assets/app/message/message-1.webp",
+            src: "/assets/app/message-1.webp",
             alt: "Luxurious hotel lobby",
             sizes: "(max-width: 400px) 100vw, 90vw",
             fill: true,

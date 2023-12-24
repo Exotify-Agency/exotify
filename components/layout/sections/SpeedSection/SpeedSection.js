@@ -15,7 +15,7 @@ const SpeedSection = () => {
       <Figure
         className={classes.SpeedImage}
         imageProps={{
-          src: "/assets/app/speed/speed-1.webp",
+          src: "/assets/app/speed-1.webp",
           alt: "red ferrari",
           sizes:
             "(max-width: 1000px) 56vw, (max-width: 800px) 80vw, (max-width: 400px) 90vw, 50vw",

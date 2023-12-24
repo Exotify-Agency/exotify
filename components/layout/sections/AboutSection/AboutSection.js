@@ -33,7 +33,7 @@ const AboutSection = () => {
             className={classes.AboutImage}
             tint
             imageProps={{
-              src: "/assets/app/about/about-1.webp",
+              src: "/assets/app/about-1.webp",
               alt: "Image of car beside cartier store",
               sizes: "(max-width: 800px) 45vw, (max-width: 400px) 80vw, 33vw",
               fill: true,

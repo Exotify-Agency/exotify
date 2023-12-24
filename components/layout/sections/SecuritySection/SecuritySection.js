@@ -24,7 +24,7 @@ const SecuritySection = () => {
           tint
           instant
           imageProps={{
-            src: "/assets/app/security/security-1.webp",
+            src: "/assets/app/security-1.webp",
             alt: "an inpenetrable castle",
             sizes:
               "(max-width: 1000px) 86vw, (max-width:(max-width: 500px) 100vw, 70vw",
