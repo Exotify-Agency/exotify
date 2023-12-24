@@ -7,11 +7,35 @@ import Project from "./Project";
 
 const dataSlides = [
   {
-    name: "Natours",
-    summary: "Tour booking website",
-    image: "/assets/app/portfolio/project-1/project-1.webp",
+    name: "Arian Rocks",
+    summary: "Personal portfolio",
+    image: "/assets/app/portfolio/arian-fallahpour.png",
+    description:
+      "A portfolio website designed to show the different skills and projects Arian Fallahpour has done. He also happens to be the founder of Exotify!",
+    link: "https://arian.rocks/",
+  },
+  {
+    name: "AB Fades",
+    summary: "Haircut business",
+    image: "/assets/app/portfolio/abfades.png",
+    description:
+      "A talented barber that has cut hair for many nationally and internationally known people. If you need a good haircut, you can rely on him.",
+    link: "https://abfades.vercel.app/",
+  },
+  {
+    name: "VIP Realtors",
+    summary: "Real Estate Team",
+    image: "/assets/app/portfolio/vip-realtors.png",
     description:
       "A website that combines multiple aspects of technological advances in order to provide a solid and smooth booking experience",
+    link: "https://viprealtorsgta.com/",
+  },
+  {
+    name: "Natours",
+    summary: "Tour booking app",
+    image: "/assets/app/portfolio/natours.webp",
+    description:
+      "A website that books fake tours. It has email, payments, database and userbase functionality.",
     link: "https://natours.netlify.app/",
   },
   {
