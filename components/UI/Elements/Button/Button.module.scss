@@ -1,3 +1,5 @@
+@import "@/sass/abstracts/mixins";
+
 .Button {
   $duration: 0.2s;
   $pd-top: 1.3rem;
@@ -259,6 +261,15 @@
       background-color: var(--c-primary);
 
       transition: height $duration ease, background $duration ease;
+
+      @include respond(600) {
+        width: 6rem;
+        height: 0.3rem;
+      }
+      @include respond(400) {
+        width: 4.5rem;
+        height: 0.3rem;
+      }
     }
   }
 }

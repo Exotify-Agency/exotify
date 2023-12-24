@@ -51,7 +51,7 @@ const dataSlides = [
     summary: "Tour booking app",
     image: "/assets/app/portfolio/natours.webp",
     description:
-      "A website that books fake tours. It has email, payments, database and userbase functionality.  Designed by Jonas Schmedtmann.",
+      "A website that books fake tours. It has email, payments, database and userbase functionality.  Designed by Jonas Schmedtmann. ",
     link: "https://natours.netlify.app/",
   },
 
@@ -90,6 +90,7 @@ const PortfolioSlider = ({ reveal, instant }) => {
     activeSlide: classes.active,
     activeDot: classes.active,
     slider: classes.PortfolioSlider,
+    sliderMain: classes.PortfolioSliderMain,
     dots: classes.PortfolioDots,
   };
 
