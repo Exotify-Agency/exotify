@@ -18,7 +18,7 @@ const PortfolioSection = () => {
           isVisible={reveal}
           instant={instant}
           direction="left"
-          delay={0.5}
+          transition={{ delay: 0.5 }}
         >
           <span className={classes.TitlebarLeft} />
         </Animate.SlideIn>
@@ -27,7 +27,7 @@ const PortfolioSection = () => {
           isVisible={reveal}
           instant={instant}
           direction="right"
-          delay={0.5}
+          transition={{ delay: 0.5 }}
         >
           <span className={classes.TitlebarRight} />
         </Animate.SlideIn>
@@ -35,14 +35,14 @@ const PortfolioSection = () => {
           isVisible={reveal}
           instant={instant}
           direction="down"
-          duration={0.5}
+          transition={{ duration: 0.5 }}
         >
           <div className={classes.TitlebarMain}>
             <Animate.SlideIn
               isVisible={reveal}
               instant={instant}
               direction="up"
-              delay={0.5}
+              transition={{ delay: 0.5 }}
             >
               <h2 className="header header-2">Our Designs</h2>
             </Animate.SlideIn>

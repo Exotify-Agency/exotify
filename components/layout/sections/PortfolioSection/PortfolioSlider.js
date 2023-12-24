@@ -5,7 +5,7 @@ import { useSlider } from "@/hooks/useSlider";
 import Button from "@/components/UI/Elements/Button/Button";
 import Project from "./Project";
 
-const data = [
+const dataSlides = [
   {
     name: "Natours",
     summary: "Tour booking website",
@@ -41,8 +41,24 @@ const data = [
 ];
 
 const PortfolioSlider = ({ reveal, instant }) => {
-  const slides = data.map((data, i) => (
-    <Project key={i} reveal={reveal} instant={instant} {...data} />
+  const options = {
+    visibleSlides: 5,
+    activeSlide: 2,
+    infiniteLoop: true,
+    autoScroll: true,
+    duration: 1, // edit in css too
+    gap: "calc(var(--pd-limit-width) * 2)",
+    hideButtons: true,
+  };
+
+  const slides = dataSlides.map((data, i) => (
+    <Project
+      key={i}
+      reveal={reveal}
+      duration={options.duration}
+      instant={instant}
+      data={data}
+    />
   ));
 
   const classNames = {
@@ -54,16 +70,6 @@ const PortfolioSlider = ({ reveal, instant }) => {
 
   const elements = {
     dot: <Button buttonType="dot" />,
-  };
-
-  const options = {
-    visibleSlides: 5,
-    activeSlide: 2,
-    infiniteLoop: true,
-    autoScroll: true,
-    duration: 1, // edit in css too
-    gap: "calc(var(--pd-limit-width) * 2)",
-    hideButtons: true,
   };
 
   const slider = useSlider({ slides, classNames, options, elements });

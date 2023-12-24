@@ -1,9 +1,10 @@
 "use client";
 
 import classes from "./Border.module.scss";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { motion } from "framer-motion";
+import { join } from "@/utils/helpers";
 
 const Border = forwardRef(
   (
@@ -14,6 +15,7 @@ const Border = forwardRef(
       borderStyle = "solid",
       transition = { duration: 1, delay: 0 },
       children,
+      className,
       ...otherProps
     },
     ref
@@ -128,7 +130,11 @@ const Border = forwardRef(
     };
 
     return (
-      <div className={classes.Border} {...otherProps} ref={ref}>
+      <div
+        className={join(classes.Border, "teST", className)}
+        {...otherProps}
+        ref={ref}
+      >
         {children}
 
         {/* MAIN BORDER */}
@@ -136,25 +142,25 @@ const Border = forwardRef(
           style={stylesTop}
           transition={transition}
           initial={initialTop}
-          animate={finalTop}
+          animate={isVisible ? finalTop : initialTop}
         />
         <motion.span
           style={stylesBottom}
           transition={transition}
           initial={initialBottom}
-          animate={finalBottom}
+          animate={isVisible ? finalBottom : initialBottom}
         />
         <motion.span
           style={stylesLeft}
           transition={transition}
           initial={initialLeft}
-          animate={finalLeft}
+          animate={isVisible ? finalLeft : initialLeft}
         />
         <motion.span
           style={stylesRight}
           transition={transition}
           initial={initialRight}
-          animate={finalRight}
+          animate={isVisible ? finalRight : initialRight}
         />
 
         {/* BORDER DOUBLE */}
@@ -164,25 +170,25 @@ const Border = forwardRef(
               style={stylesTopDouble}
               transition={transition}
               initial={initialTopDouble}
-              animate={finalTopDouble}
+              animate={isVisible ? finalTopDouble : initialTopDouble}
             />
             <motion.span
               style={stylesBottomDouble}
               transition={transition}
               initial={initialBottomDouble}
-              animate={finalBottomDouble}
+              animate={isVisible ? finalBottomDouble : initialBottomDouble}
             />
             <motion.span
               style={stylesLeftDouble}
               transition={transition}
               initial={initialLeftDouble}
-              animate={finalLeftDouble}
+              animate={isVisible ? finalLeftDouble : initialLeftDouble}
             />
             <motion.span
               style={stylesRightDouble}
               transition={transition}
               initial={initialRightDouble}
-              animate={finalRightDouble}
+              animate={isVisible ? finalRightDouble : initialRightDouble}
             />
           </>
         )}

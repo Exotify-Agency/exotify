@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slide from "./Slide";
 
-import classes from "./Slider.module.scss";
-
 const Slides = ({ slides, slide, totalChange, options, classNames }) => {
   // Dynamic dimensions that are automatically calculated
   const slidesRef = useRef([]);

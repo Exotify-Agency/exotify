@@ -10,7 +10,7 @@ import DesignSection from "@/components/layout/sections/DesignSection/DesignSect
 import BusinessSection from "@/components/layout/sections/BusinessSection/BusinessSection";
 import SpeedSection from "@/components/layout/sections/SpeedSection/SpeedSection";
 import SecuritySection from "@/components/layout/sections/SecuritySection/SecuritySection";
-// import PortfolioSection from "@/components/layout/sections/PortfolioSection/PortfolioSection";
+import PortfolioSection from "@/components/layout/sections/PortfolioSection/PortfolioSection";
 
 export const metadata = {
   title: `Home | ${business.name}`,
@@ -23,7 +23,7 @@ export default function Home() {
     <Fragment>
       <Header />
       <AboutSection />
-      {/* <PortfolioSection /> */}
+      <PortfolioSection />
 
       {/* FEATURES */}
       <DesignSection />

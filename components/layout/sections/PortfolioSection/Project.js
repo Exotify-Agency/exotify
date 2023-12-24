@@ -1,8 +1,9 @@
 import Button from "@/components/UI/Elements/Button/Button";
 import classes from "./PortfolioSection.module.scss";
-import Image from "@/components/UI/Elements/ImageLoader/ImageLoader";
+import Image from "next/image";
 import Border from "@/components/UI/Styling/Border";
 import Animate from "@/components/UI/Animate/Animate";
+import { join } from "@/utils/helpers";
 
 const delays = [0.5, 0.3, 0, 0.3, 0.5];
 
@@ -11,16 +12,10 @@ const Project = ({
   isVisible,
   isActive,
   className,
-
   reveal,
   instant,
-
-  image,
-  name,
-  summary,
-  link,
-  description,
-  ...otherProps
+  duration,
+  data,
 }) => {
   const delay = delays[slide];
 
@@ -29,24 +24,37 @@ const Project = ({
       isVisible={reveal}
       instant={instant}
       direction="up"
-      delay={delay + 0.35}
+      transition={{ delay: delay + 0.35 }}
     >
-      <div className={classes.ProjectWrapper}>
+      <div
+        className={join(
+          classes.ProjectWrapper,
+          isActive ? classes.active : null
+        )}
+      >
         <Border
-          className={[className, classes.Project].join(" ").trim()}
+          className={join(className, classes.Project)}
           isVisible={isActive}
-          padding="2rem"
+          padding="0rem"
           borderStyle="double"
-          {...otherProps}
+          transition={{ duration }}
         >
-          <div className={classes.ProjectImage}>
-            <Image src={image} alt={name} />
+          <div className={classes.ProjectHeader}>
+            <div className={classes.ProjectImage}>
+              <Image
+                src={data.image}
+                alt={data.name}
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 800px) 30vw, (max-width: 400px) 40vw, 15vw"
+                fill
+              />
+            </div>
             <div className={classes.ProjectName}>
-              <h3 className="header header-3">{name}</h3>
+              <h3 className="header header-3">{data.name}</h3>
             </div>
           </div>
-          <p className="paragraph">{description}</p>
-          <Button href={link} buttonType="shine" isLink>
+          <p className="paragraph">{data.description}</p>
+          <Button href={data.link} buttonType="shine" isLink>
             visit
           </Button>
         </Border>
