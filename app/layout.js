@@ -1,12 +1,13 @@
 import "@/sass/globals.scss";
 
 import { Roboto, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { Providers } from "./providers";
 
 import business from "@/data/business.json";
 
 import Nav from "@/components/layout/Nav/Nav";
 import Footer from "@/components/layout/Footer/Footer";
-import { Providers } from "./providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
           <main className="main">{children}</main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
