@@ -54,7 +54,6 @@ const dataSlides = [
       "A website that books fake tours. It has email, payments, database and userbase functionality.  Designed by Jonas Schmedtmann. ",
     link: "https://natours.netlify.app/",
   },
-
   {
     name: "Exotify",
     summary: "Web design agency",
@@ -62,6 +61,14 @@ const dataSlides = [
     description:
       "A website that includes almost every feature imaginable at a stunning scale. This is sure to convince unsure customers to choose them instead of other web design agencies.",
     link: "https://exotify.ca/",
+  },
+  {
+    name: "Canada Technics",
+    summary: "IT business",
+    image: "/assets/app/portfolio/canada-technics.png",
+    description:
+      "An IT business that solve many modern problems using innovative solutions. It utilizes AI to create a monthly newsletter based on some of the hottest topics currently.",
+    link: "https://www.canadatechnics.com/",
   },
 ];
 

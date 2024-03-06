@@ -18,22 +18,6 @@ const Alternatives = () => {
       isVisible={inView}
     >
       <div className={classes.Alternatives}>
-        {/* <div className={classes.Alternative}>
-          <Button buttonType="underline" href={`mailto:${business.email}`} isLink>
-            {business.email}
-          </Button>
-        </div>
-        <span className={classes.divider} />
-        <div className={classes.Alternative}>
-          <Button
-            buttonType="underline"
-            href={`www.instagram.com/${business.instagram.slice(1)}/`}
-            isLink
-          >
-            {business.instagram}
-          </Button>
-        </div> 
-        <span className={classes.divider} /> */}
         <div className={classes.Alternative}>
           <Button
             buttonType="underline"
