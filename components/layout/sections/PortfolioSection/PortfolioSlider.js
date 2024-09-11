@@ -62,14 +62,14 @@ const dataSlides = [
       "A website that includes almost every feature imaginable at a stunning scale. This is sure to convince unsure customers to choose them instead of other web design agencies.",
     link: "https://exotify.ca/",
   },
-  {
-    name: "Canada Technics",
-    summary: "IT business",
-    image: "/assets/app/portfolio/canada-technics.png",
-    description:
-      "An IT business that solve many modern problems using innovative solutions. It utilizes AI to create a monthly newsletter based on some of the hottest topics currently.",
-    link: "https://www.canadatechnics.com/",
-  },
+  // {
+  //   name: "Canada Technics",
+  //   summary: "IT business",
+  //   image: "/assets/app/portfolio/canada-technics.png",
+  //   description:
+  //     "An IT business that solve many modern problems using innovative solutions. It utilizes AI to create a monthly newsletter based on some of the hottest topics currently.",
+  //   link: "https://www.canadatechnics.com/",
+  // },
 ];
 
 const PortfolioSlider = ({ reveal, instant }) => {
@@ -84,13 +84,7 @@ const PortfolioSlider = ({ reveal, instant }) => {
   };
 
   const slides = dataSlides.map((data, i) => (
-    <Project
-      key={i}
-      reveal={reveal}
-      duration={options.duration}
-      instant={instant}
-      data={data}
-    />
+    <Project key={i} reveal={reveal} duration={options.duration} instant={instant} data={data} />
   ));
 
   const classNames = {
